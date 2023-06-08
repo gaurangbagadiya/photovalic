@@ -133,22 +133,22 @@ export const searchArr = [
         icon: 'User',
         link: '/apps/user/view'
       },
-      {
-        id: 18,
-        target: 'login-basic',
-        isBookmarked: false,
-        title: 'Login Basic',
-        icon: 'LogIn',
-        link: '/pages/login-basic'
-      },
-      {
-        id: 19,
-        target: 'login-cover',
-        isBookmarked: false,
-        title: 'Login Cover',
-        icon: 'LogIn',
-        link: '/pages/login-cover'
-      },
+      // {
+      //   id: 18,
+      //   target: 'login-basic',
+      //   isBookmarked: false,
+      //   title: 'Login Basic',
+      //   icon: 'LogIn',
+      //   link: '/pages/login-basic'
+      // },
+      // {
+      //   id: 19,
+      //   target: 'login-cover',
+      //   isBookmarked: false,
+      //   title: 'Login Cover',
+      //   icon: 'LogIn',
+      //   link: '/pages/login-cover'
+      // },
       {
         id: 20,
         target: 'register-basic',

@@ -181,27 +181,27 @@ export default [
     title: 'Authentication',
     icon: <UserCheck size={20} />,
     children: [
-      {
-        id: 'login',
-        title: 'Login',
-        icon: <Circle size={12} />,
-        children: [
-          {
-            id: 'login-basic',
-            title: 'Basic',
-            permissions: ['admin', 'editor'],
-            navLink: '/pages/login-basic',
-            newTab: true
-          },
-          {
-            id: 'login-cover',
-            title: 'Cover',
-            permissions: ['admin', 'editor'],
-            navLink: '/pages/login-cover',
-            newTab: true
-          }
-        ]
-      },
+      // {
+      //   id: 'login',
+      //   title: 'Login',
+      //   icon: <Circle size={12} />,
+      //   children: [
+      //     {
+      //       id: 'login-basic',
+      //       title: 'Basic',
+      //       permissions: ['admin', 'editor'],
+      //       navLink: '/pages/login-basic',
+      //       newTab: true
+      //     },
+      //     {
+      //       id: 'login-cover',
+      //       title: 'Cover',
+      //       permissions: ['admin', 'editor'],
+      //       navLink: '/pages/login-cover',
+      //       newTab: true
+      //     }
+      //   ]
+      // },
       {
         id: 'register',
         title: 'Register',
