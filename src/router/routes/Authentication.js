@@ -2,8 +2,12 @@
 import { lazy } from "react";
 
 const Login = lazy(() => import("../../views/pages/authentication/Login"));
-// const LoginBasic = lazy(() => import('../../views/pages/authentication/LoginBasic'))
-// const LoginCover = lazy(() => import('../../views/pages/authentication/LoginCover'))
+const LoginBasic = lazy(() =>
+  import("../../views/pages/authentication/LoginBasic")
+);
+const LoginCover = lazy(() =>
+  import("../../views/pages/authentication/LoginCover")
+);
 
 const Register = lazy(() =>
   import("../../views/pages/authentication/Register")
@@ -74,15 +78,6 @@ const AuthenticationRoutes = [
   //   }
   // },
   // {
-  //   path: '/register',
-  //   element: <Register />,
-  //   meta: {
-  //     layout: 'blank',
-  //     publicRoute: true,
-  //     restricted: true
-  //   }
-  // },
-  // {
   //   path: '/pages/register-basic',
   //   element: <RegisterBasic />,
   //   meta: {
@@ -92,6 +87,13 @@ const AuthenticationRoutes = [
   // {
   //   path: '/pages/register-cover',
   //   element: <RegisterCover />,
+  //   meta: {
+  //     layout: 'blank'
+  //   }
+  // },
+  // {
+  //   path: '/pages/register-multi-steps',
+  //   element: <RegisterMultiSteps />,
   //   meta: {
   //     layout: 'blank'
   //   }
@@ -117,18 +119,22 @@ const AuthenticationRoutes = [
     },
   },
   // {
-  //   path: '/pages/forgot-password-basic',
+  //   path: "/pages/forgot-password-basic",
   //   element: <ForgotPasswordBasic />,
   //   meta: {
-  //     layout: 'blank'
-  //   }
+  //     layout: "blank",
+  //     publicRoute: true,
+  //     restricted: true,
+  //   },
   // },
   // {
-  //   path: '/pages/forgot-password-cover',
+  //   path: "/pages/forgot-password-cover",
   //   element: <ForgotPasswordCover />,
   //   meta: {
-  //     layout: 'blank'
-  //   }
+  //     layout: "blank",
+  //     publicRoute: true,
+  //     restricted: true,
+  //   },
   // },
   {
     path: "/pages/reset-password-basic",

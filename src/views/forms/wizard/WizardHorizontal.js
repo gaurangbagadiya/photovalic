@@ -5,10 +5,15 @@ import { useRef, useState } from 'react'
 import Wizard from '@components/wizard'
 
 // ** Steps
-import Address from './steps-with-validation/Address'
-import SocialLinks from './steps-with-validation/SocialLinks'
-import PersonalInfo from './steps-with-validation/PersonalInfo'
-import AccountDetails from './steps-with-validation/AccountDetails'
+// import Address from './steps-with-validation/Address'
+// import SocialLinks from './steps-with-validation/SocialLinks'
+// import PersonalInfo from './steps-with-validation/PersonalInfo'
+// import AccountDetails from './steps-with-validation/AccountDetails'
+
+import Address from './steps/Address'
+import SocialLinks from './steps/SocialLinks'
+import PersonalInfo from './steps/PersonalInfo'
+import AccountDetails from './steps/AccountDetails'
 
 const WizardHorizontal = () => {
   // ** Ref

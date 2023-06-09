@@ -45,6 +45,7 @@ const Billing = ({ stepper }) => {
   })
 
   const onSubmit = data => {
+    console.log("dataaa",data);
     if (data.cardNumber && data.cardNumber.length > 0) {
       alert('Submitted!!!!')
     } else {

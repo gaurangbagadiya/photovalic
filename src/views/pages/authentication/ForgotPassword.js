@@ -32,6 +32,7 @@ import { ChevronLeft } from "react-feather";
 import "@styles/react/pages/page-authentication.scss";
 
 const ForgotPassword = () => {
+  console.log("$$$$$$$$$$$$$$$$$$");
   // ** Hooks
   const { skin } = useSkin();
 
