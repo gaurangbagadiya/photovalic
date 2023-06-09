@@ -15,7 +15,7 @@
   align-items: center;
   & > * {
     margin-right: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -84,8 +84,8 @@
 }
 
 // Breadcrumb page alignment demo
-#component-breadcrumbs .breadcrumb:not(last-child){
-  margin-bottom: .5rem;
+#component-breadcrumbs .breadcrumb:not(last-child) {
+  margin-bottom: 0.5rem;
 }
 #breadcrumb-alignment {
   .breadcrumb-wrapper {

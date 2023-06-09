@@ -1,6 +1,6 @@
 // ** React Imports
-import { useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // ** Custom Hooks
 import { useSkin } from "@hooks/useSkin";
@@ -21,7 +21,7 @@ import {
 } from "react-feather";
 
 // ** Actions
-import { handleLogin } from "@store/authentication";
+// import { handleLogin } from "@store/authentication";
 
 // ** Context
 import { AbilityContext } from "@src/utility/context/Can";
@@ -31,7 +31,9 @@ import Avatar from "@components/avatar";
 import InputPasswordToggle from "@components/input-password-toggle";
 
 // ** Utils
-import { getHomeRouteForLoggedInUser } from "@utils";
+import { getHomeRouteForLoggedInUser, isObjEmpty, handleLogin } from "@utils";
+
+import { LoginRequest } from "../../../@core/api/auth";
 
 // ** Reactstrap Imports
 import {
@@ -45,13 +47,14 @@ import {
   CardText,
   CardTitle,
   UncontrolledTooltip,
+  FormFeedback,
   Card,
   CardBody,
 } from "reactstrap";
 
 // ** Styles
 import "@styles/react/pages/page-authentication.scss";
-import { isUserLoggedIn } from "../../../utility/Utils";
+import { notification } from "../../../@core/constants/notification";
 
 const ToastContent = ({ t, name, role }) => {
   return (
@@ -78,13 +81,14 @@ const ToastContent = ({ t, name, role }) => {
 };
 
 const defaultValues = {
-  password: "",
   loginEmail: "",
+  password: "",
 };
 
 const Login = () => {
   // ** Hooks
   const { skin } = useSkin();
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ability = useContext(AbilityContext);
@@ -97,33 +101,57 @@ const Login = () => {
   const illustration = skin === "dark" ? "login-v2-dark.svg" : "login-v2.svg",
     source = require(`@src/assets/images/pages/${illustration}`).default;
 
-  // let isLogin =  isUserLoggedIn();
-  const onSubmit = (data) => {
-    console.log("data", data);
+  const onSubmit = async (data) => {
     if (Object.values(data).every((field) => field.length > 0)) {
-      useJwt
-        .login({ email: data.loginEmail, password: data.password })
-        .then((res) => {
-          const data = {
-            ...res.data.userData,
-            accessToken: res.data.accessToken,
-            refreshToken: res.data.refreshToken,
-          };
-          dispatch(handleLogin(data));
-          ability.update(res.data.userData.ability);
-          navigate(getHomeRouteForLoggedInUser(data.role));
-          toast((t) => (
-            <ToastContent
-              t={t}
-              role={data.role || "admin"}
-              name={data.fullName || data.username || "John Doe"}
-            />
-          ));
-        })
-        .catch((err) => console.log(err));
+      // useJwt
+      //   .login({ email: data.loginEmail, password: data.password })
+      //   .then((res) => {
+      //     const data = {
+      //       ...res.data.userData,
+      //       accessToken: res.data.accessToken,
+      //       refreshToken: res.data.refreshToken,
+      //     };
+      //     dispatch(handleLogin(data));
+      //     ability.update(res.data.userData.ability);
+      //     navigate(getHomeRouteForLoggedInUser(data.role));
+      //     toast((t) => (
+      //       <ToastContent
+      //         t={t}
+      //         role={data.role || "admin"}
+      //         name={data.fullName || data.username || "John Doe"}
+      //       />
+      //     ));
+      //   })
+      //   .catch((err) => console.log(err));
+      console.log("data", data);
+      setLoading(true);
+      const response = await LoginRequest(data);
+      console.log(response, "response");
+      if (response?.status === 1) {
+        await handleLogin(response?.data);
+        window.location.href = `${getHomeRouteForLoggedInUser("admin")}`;
+        // if (response?.data.type == 0) {
+        // } else {
+        //   window.location.href = `${getHomeRouteForLoggedInUser("client")}`;
+        // }
+        setLoading(false);
+
+        notification({
+          type: "success",
+          // title: "Login Successfully",
+          message: response.message,
+        });
+      } else {
+        setLoading(false);
+        notification({
+          type: "error",
+          title: "Login Unsuccessful",
+          message: response.message,
+        });
+      }
     } else {
       for (const key in data) {
-        if (data[key].length === 0) {
+        if (data[key]?.length === 0) {
           setError(key, {
             type: "manual",
           });
@@ -138,8 +166,8 @@ const Login = () => {
         <Card className="mb-0">
           <CardBody>
             {/* <Link className='brand-logo' to='/' 
-            onClick={e => e.preventDefault()}
-            > */}
+          onClick={e => e.preventDefault()}
+          > */}
             <svg viewBox="0 0 139 95" version="1.1" height="28">
               <defs>
                 <linearGradient
@@ -239,6 +267,9 @@ const Login = () => {
                     />
                   )}
                 />
+                {/* {errors?.loginEmail && (
+                  <FormFeedback>{errors?.loginEmail?.message}</FormFeedback>
+                )} */}
               </div>
               <div className="mb-1">
                 <div className="d-flex justify-content-between">
@@ -255,16 +286,21 @@ const Login = () => {
                   control={control}
                   render={({ field }) => (
                     <InputPasswordToggle
+                      id="password"
+                      name="password"
                       className="input-group-merge"
                       invalid={errors.password && true}
                       {...field}
                     />
                   )}
                 />
+                {/* {errors?.password && (
+                  <FormFeedback>{errors?.password?.message}</FormFeedback>
+                )} */}
               </div>
-              {/* <div className='form-check mb-1'>
-                <Input type='checkbox' id='remember-me' />
-                <Label className='form-check-label' for='remember-me'>
+              {/* <div className="form-check mb-1">
+                <Input type="checkbox" id="remember-me" />
+                <Label className="form-check-label" for="remember-me">
                   Remember Me
                 </Label>
               </div> */}
