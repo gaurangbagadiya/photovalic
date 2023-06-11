@@ -102,9 +102,9 @@ const Login = lazy(() => import("../views/pages/authentication/Login"));
 const RegisterMultiSteps = lazy(() =>
   import("../views/pages/authentication/register-multi-steps")
 );
-const EmailVerified = lazy(() =>
-  import("../views/pages/authentication/VerifyEmailBasic")
-);
+// const EmailVerified = lazy(() =>
+//   import("../views/pages/authentication/VerifyEmailBasic")
+// );
 
 const ForgotPasswordBasic = lazy(() =>
   import("../views/pages/authentication/ForgotPasswordBasic")
@@ -113,9 +113,9 @@ const ForgotPasswordBasic = lazy(() =>
 //   import("../views/pages/authentication/ForgotPassword")
 // );
 const NotAuthorized = lazy(() => import("../views/pages/misc/NotAuthorized"));
-const ResetPasswordCover = lazy(() =>
-  import("../views/pages/authentication/ResetPasswordCover")
-);
+ //const ResetPasswordCover = lazy(() =>
+ //  import("../views/pages/authentication/ResetPasswordCover")
+ //);
 // const Inquiry = lazy(() => import("../../views/pages/Lead/inquiry"));
 // const Inquiry = lazy(() => import("../views/pages/Lead/inquiry"));
 
@@ -182,13 +182,13 @@ const Router = () => {
         element: <BlankLayout />,
         children: [{ path: "/register", element: <RegisterMultiSteps /> }],
       },
-      {
-        path: "/email-verified/:token",
-        element: <BlankLayout />,
-        children: [
-          { path: "/email-verified/:token", element: <EmailVerified /> },
-        ],
-      },
+      // {
+      //   path: "/email-verified/:token",
+      //   element: <BlankLayout />,
+      //   children: [
+      //     { path: "/email-verified/:token", element: <EmailVerified /> },
+      //   ],
+      // },
 
       {
         path: "/forgot-password",
@@ -197,16 +197,16 @@ const Router = () => {
           { path: "/forgot-password", element: <ForgotPasswordBasic /> },
         ],
       },
-      {
-        path: "/reset-password-cover/:code",
-        element: <BlankLayout />,
-        children: [
-          {
-            path: "/reset-password-cover/:code",
-            element: <ResetPasswordCover />,
-          },
-        ],
-      },
+      //  {
+      //   path: "/reset-password-cover/:code",
+      //   element: <BlankLayout />,
+      //  children: [
+      //    {
+      //      path: "/reset-password-cover/:code",
+      //      element: <ResetPasswordCover />,
+      //   },
+      //   ],
+      //  },
       {
         path: "/auth/not-auth",
         element: <BlankLayout />,
@@ -227,13 +227,13 @@ const Router = () => {
         index: true,
         element: <Navigate replace to={getHomeRoute()} />,
       },
-      {
-        path: "/email-verified/:token",
-        element: <BlankLayout />,
-        children: [
-          { path: "/email-verified/:token", element: <EmailVerified /> },
-        ],
-      },
+      // {
+      //   path: "/email-verified/:token",
+      //   element: <BlankLayout />,
+      //   children: [
+      //     { path: "/email-verified/:token", element: <EmailVerified /> },
+      //   ],
+      // },
       {
         path: "/login",
         element: <BlankLayout />,

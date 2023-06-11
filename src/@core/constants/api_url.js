@@ -1,8 +1,10 @@
 export const ApiRoutes = {
-  API_HOSTNAME: "http://192.168.1.8:4000",
-  LOGIN: "login",
+  API_HOSTNAME: "http://localhost:7000",
+  // your api end points
+
+  LOGIN: "users/login",
+  REGISTER: "users/register",
   CHECKEMAIL: "check-email",
   CHECKMOBILE: "check-mobile",
-  REGISTER: "register",
   GETATTRIBUTEBYID: "get-attributebyid",
 };
