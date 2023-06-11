@@ -75,6 +75,7 @@ export default [
               },
             ],
           },
+
           {
             id: "forgot-password",
             title: "Forgot Password",
@@ -85,13 +86,6 @@ export default [
                 title: "Basic",
                 permissions: ["admin", "editor"],
                 navLink: "/pages/forgot-password-basic",
-                newTab: true,
-              },
-              {
-                id: "forgotPassword-cover",
-                title: "Cover",
-                permissions: ["admin", "editor"],
-                navLink: "/pages/forgot-password-cover",
                 newTab: true,
               },
             ],
@@ -106,13 +100,6 @@ export default [
                 title: "Basic",
                 permissions: ["admin", "editor"],
                 navLink: "/pages/reset-password-basic",
-                newTab: true,
-              },
-              {
-                id: "resetPassword-cover",
-                title: "Cover",
-                permissions: ["admin", "editor"],
-                navLink: "/pages/reset-password-cover",
                 newTab: true,
               },
             ],

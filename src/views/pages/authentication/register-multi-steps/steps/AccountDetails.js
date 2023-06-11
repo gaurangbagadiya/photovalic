@@ -13,6 +13,8 @@ import { Form, Label, Input, Row, Col, Button, FormFeedback } from "reactstrap";
 // ** Custom Components
 import InputPasswordToggle from "@components/input-password-toggle";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../../../../@core/api/common_api";
+import { notification } from "../../../../../@core/constants/notification";
 
 const defaultValues = {
   firstName: "",
@@ -51,9 +53,30 @@ const AccountDetails = ({ stepper }) => {
     resolver: yupResolver(SignupSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (Object.values(data).every((field) => field.length > 0)) {
       console.log(data);
+      let formData = {
+        firstname: data?.firstName,
+        lastname: data?.lastName,
+        email: data?.email,
+        phone: data?.mobileNumber,
+        username: data?.userName,
+        password: data?.password
+      }
+      const response = await registerUser(formData);
+      console.log(response, "response");
+      if (response?.status === 1) {
+        notification({
+          type: "success",
+          message: response.message,
+        });
+      } else {
+        notification({
+          type: "error",
+          message: response.message,
+        });
+      }
     }
   };
 
@@ -105,26 +128,6 @@ const AccountDetails = ({ stepper }) => {
               <FormFeedback>{errors.lastName.message}</FormFeedback>
             )}
           </Col>
-          <Col md="6" className="mb-1">
-            <Label className="form-label" for="userName">
-              Username
-            </Label>
-            <Controller
-              id="userName"
-              name="userName"
-              control={control}
-              render={({ field }) => (
-                <Input
-                  placeholder="john doe"
-                  invalid={errors.userName && true}
-                  {...field}
-                />
-              )}
-            />
-            {errors.userName && (
-              <FormFeedback>{errors.userName.message}</FormFeedback>
-            )}
-          </Col>
           <Col md="6" sm="12">
             <div className="mb-1">
               <Label className="form-label" for="mobileNumber">
@@ -170,6 +173,26 @@ const AccountDetails = ({ stepper }) => {
               <FormFeedback>{errors.email.message}</FormFeedback>
             )}
           </Col>
+          <Col md="6" className="mb-1">
+            <Label className="form-label" for="userName">
+              Username
+            </Label>
+            <Controller
+              id="userName"
+              name="userName"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  placeholder="john doe"
+                  invalid={errors.userName && true}
+                  {...field}
+                />
+              )}
+            />
+            {errors.userName && (
+              <FormFeedback>{errors.userName.message}</FormFeedback>
+            )}
+          </Col>
         </Row>
         <Row>
           <div className="form-password-toggle col-md-6 mb-1">
@@ -211,22 +234,6 @@ const AccountDetails = ({ stepper }) => {
             )}
           </div>
         </Row>
-        {/* <Row>
-          <Col sm={12} className='mb-1'>
-            <Label className='form-label' for='profile-link'>
-              Profile Link
-            </Label>
-            <Input id='profile-link' placeholder='johndoe/profile' />
-          </Col>
-          <Col sm={12} className='mb-1'>
-            <div className='form-check form-check-inline'>
-              <Input type='checkbox' id='remember-me' />
-              <Label for='remember-me' className='form-check-label'>
-                Remember Me
-              </Label>
-            </div>
-          </Col>
-        </Row> */}
         <div className="d-flex justify-content-between mt-2">
           <Button
             color="secondary"

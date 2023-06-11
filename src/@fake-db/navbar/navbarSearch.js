@@ -165,22 +165,16 @@ export const searchArr = [
         icon: "UserPlus",
         link: "/pages/register-cover",
       },
+
       {
         id: 22,
-        target: "forgotPassword-basic",
+        target: 'forgotPassword-basic',
         isBookmarked: false,
-        title: "Forgot Password Basic",
-        icon: "Crosshair",
-        link: "/pages/forgot-password-basic",
+        title: 'Forgot Password Basic',
+        icon: 'Crosshair',
+        link: '/pages/forgot-password-basic'
       },
-      {
-        id: 23,
-        target: "forgotPassword-cover",
-        isBookmarked: false,
-        title: "Forgot Password Cover",
-        icon: "Crosshair",
-        link: "/pages/forgot-password-cover",
-      },
+
       {
         id: 24,
         target: "resetPassword-basic",
@@ -962,21 +956,22 @@ export const searchArr = [
         icon: "Square",
         link: "/pages/modal-examples",
       },
+
       {
         id: 125,
-        icon: "AtSign",
+        icon: 'AtSign',
         isBookmarked: false,
-        target: "verifyEmailBasic",
-        title: "Verify Email Basic",
-        link: "/pages/verify-email-basic",
+        target: 'verifyEmailBasic',
+        title: 'Verify Email Basic',
+        link: '/pages/verify-email-basic'
       },
       {
         id: 126,
-        icon: "AtSign",
+        icon: 'AtSign',
         isBookmarked: false,
-        target: "verifyEmailCover",
-        title: "Verify Email Cover",
-        link: "/pages/verify-email-cover",
+        target: 'verifyEmailCover',
+        title: 'Verify Email Cover',
+        link: '/pages/verify-email-cover'
       },
       {
         id: 127,
