@@ -1,10 +1,39 @@
 // ** Icons Import
-import { Mail, MessageSquare, CheckSquare, Calendar, FileText, Circle, ShoppingCart, User, Shield } from 'react-feather'
+import { Mail, MessageSquare, CheckSquare, Calendar, FileText, Circle, ShoppingCart, User, Shield, FilePlus } from 'react-feather'
 
 export default [
   {
     header: 'Apps & Pages'
   },
+
+  {
+    id: 'addProject',
+    title: 'Create Project',
+    icon: <FilePlus size={20} />,
+    navLink: '/project'
+  },
+  {
+    id: 'projectHistory',
+    title: 'Project History',
+    // icon: <Mail size={20} />,
+    // navLink: '/apps/email'
+  },
+  {
+    id: 'geography',
+    title: 'Map View',
+    // icon: <Mail size={20} />,
+    // navLink: '/apps/email'
+  },
+  {
+    id: 'profile',
+    title: 'User Profile',
+    // icon: <Mail size={20} />,
+    // navLink: '../../views/pages'
+  },
+
+
+
+
   {
     id: 'email',
     title: 'Email',

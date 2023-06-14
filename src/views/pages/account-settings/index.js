@@ -8,13 +8,13 @@ import axios from 'axios'
 import { Row, Col, TabContent, TabPane } from 'reactstrap'
 
 // ** Demo Components
-import Tabs from './Tabs'
+// import Tabs from './Tabs'
 import Breadcrumbs from '@components/breadcrumbs'
-import BillingTabContent from './BillingTabContent'
 import AccountTabContent from './AccountTabContent'
-import SecurityTabContent from './SecurityTabContent'
-import ConnectionsTabContent from './ConnectionsTabContent'
-import NotificationsTabContent from './NotificationsTabContent'
+// // import BillingTabContent from './BillingTabContent'
+// import SecurityTabContent from './SecurityTabContent'
+// import ConnectionsTabContent from './ConnectionsTabContent'
+// import NotificationsTabContent from './NotificationsTabContent'
 
 // ** Styles
 import '@styles/react/libs/flatpickr/flatpickr.scss'
@@ -39,13 +39,13 @@ const AccountSettings = () => {
       {data !== null ? (
         <Row>
           <Col xs={12}>
-            <Tabs className='mb-2' activeTab={activeTab} toggleTab={toggleTab} />
+            {/* <Tabs className='mb-2' activeTab={activeTab} toggleTab={toggleTab} /> */}
 
             <TabContent activeTab={activeTab}>
               <TabPane tabId='1'>
                 <AccountTabContent data={data.general} />
               </TabPane>
-              <TabPane tabId='2'>
+              {/* <TabPane tabId='2'>
                 <SecurityTabContent />
               </TabPane>
               <TabPane tabId='3'>
@@ -56,7 +56,7 @@ const AccountSettings = () => {
               </TabPane>
               <TabPane tabId='5'>
                 <ConnectionsTabContent />
-              </TabPane>
+              </TabPane> */}
             </TabContent>
           </Col>
         </Row>

@@ -13,7 +13,7 @@ const CardCongratulations = () => {
       <CardBody className='text-center'>
         <Avatar icon={<Plus size={28} />} className='shadow' color='primary' size='xl' />
         <div className='text-center'>
-          <h1 className='mb-1 text-white'><stoong>Create New Project</stoong></h1>
+          <h1 className='mb-1 text-white'><strong>Create New Project</strong></h1>
           <CardText className='m-auto w-75'>
             Empowering Lives with Photovoltaic Brilliance"
           </CardText>

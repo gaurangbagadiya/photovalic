@@ -57,12 +57,12 @@ export const handleLogin = async (data) => {
     // await localStorage.setItem("userData", Buffer.from(abc).toString("base64"));
     // await localStorage.setItem("accessToken", JSON.stringify(data.auth_token));
     // await localStorage.setItem("userData", JSON.stringify(data));
-    await secureLocalStorage.setItem("userData", JSON.stringify(data));
-    // await calStorage.setItem(
-    //   "auth_token",
-    //   JSON.stringify(data.auth_token)
-    // );
-  } catch (e) {}
+    await secureLocalStorage.setItem("userData", JSON.stringify(data?.data));
+    await secureLocalStorage.setItem(
+      "auth_token",
+      JSON.stringify(data.token)
+    );
+  } catch (e) { }
 };
 
 // ** Handle User Logout
@@ -72,7 +72,7 @@ export const handleLogout = () => {
     // localStorage.removeItem("accessToken");
     secureLocalStorage.clear("userdata");
     secureLocalStorage.clear("auth_token");
-  } catch (error) {}
+  } catch (error) { }
 };
 
 /**
@@ -96,7 +96,7 @@ export const getHomeRouteForLoggedInUser = (userRole) => {
   console.log("userRoleuserRole", userRole);
   console.log(DefaultRoute, "DefaultRoute", userRole === "admin");
   if (userRole == "admin") return DefaultRoute;
-  if (userRole == "client") return "/course";
+  if (userRole == "client") return "/dashboard";
   return "/login";
 };
 

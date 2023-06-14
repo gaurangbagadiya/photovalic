@@ -33,37 +33,37 @@ const AvgSessions = props => {
   }, [])
 
   const options = {
-      chart: {
-        sparkline: { enabled: true },
-        toolbar: { show: false }
-      },
-      grid: {
-        show: false,
-        padding: {
-          left: 0,
-          right: 0
-        }
-      },
-      states: {
-        hover: {
-          filter: 'none'
-        }
-      },
-      colors: ['#ebf0f7', '#ebf0f7', props.primary, '#ebf0f7', '#ebf0f7', '#ebf0f7'],
-      plotOptions: {
-        bar: {
-          columnWidth: '45%',
-          distributed: true,
-          borderRadius: [10]
-        }
-      },
-      tooltip: {
-        x: { show: false }
-      },
-      xaxis: {
-        type: 'numeric'
+    chart: {
+      sparkline: { enabled: true },
+      toolbar: { show: false }
+    },
+    grid: {
+      show: false,
+      padding: {
+        left: 0,
+        right: 0
       }
     },
+    states: {
+      hover: {
+        filter: 'none'
+      }
+    },
+    colors: ['#ebf0f7', '#ebf0f7', props.primary, '#ebf0f7', '#ebf0f7', '#ebf0f7'],
+    plotOptions: {
+      bar: {
+        columnWidth: '45%',
+        distributed: true,
+        borderRadius: [10]
+      }
+    },
+    tooltip: {
+      x: { show: false }
+    },
+    xaxis: {
+      type: 'numeric'
+    }
+  },
     series = [
       {
         name: 'Sessions',
