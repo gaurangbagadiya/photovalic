@@ -1,32 +1,26 @@
-// ** React Imports
-import { useEffect, useState } from 'react'
-
-// ** Third Party Components
-import axios from 'axios'
-import { Users } from 'react-feather'
+// ** Icons Imports
+import { Plus } from 'react-feather'
 
 // ** Custom Components
-import StatsWithAreaChart from '@components/widgets/stats/StatsWithAreaChart'
+import Avatar from '@components/avatar'
 
-const SubscribersGained = ({ kFormatter }) => {
-  // ** State
-  const [data, setData] = useState(null)
+// ** Reactstrap Imports
+import { Card, CardBody, CardText } from 'reactstrap'
 
-  useEffect(() => {
-    axios.get('/card/card-statistics/subscribers').then(res => setData(res.data))
-    return () => setData(null)
-  }, [])
-
-  return data !== null ? (
-    <StatsWithAreaChart
-      icon={<Users size={21} />}
-      color='primary'
-      stats={kFormatter(data.analyticsData.subscribers)}
-      statTitle='Subscribers Gained'
-      series={data.series}
-      type='area'
-    />
-  ) : null
+const SubscribersGained = () => {
+  return (
+    <Card className='card-congratulations'>
+      <CardBody className='text-center'>
+        <Avatar icon={<Plus size={28} />} className='shadow' color='primary' size='xl' />
+        <div className='text-center'>
+          <h1 className='mb-1 text-white'><strong>Project History</strong></h1>
+          <CardText className='m-auto w-75'>
+            Empowering Lives with Photovoltaic Brilliance"
+          </CardText>
+        </div>
+      </CardBody>
+    </Card>
+  )
 }
 
 export default SubscribersGained

@@ -1,6 +1,6 @@
 // ** React Imports
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 // ** Custom Hooks
 import { useSkin } from "@hooks/useSkin";
@@ -44,34 +44,35 @@ import {
 // ** Styles
 import "@styles/react/pages/page-authentication.scss";
 import { notification } from "../../../@core/constants/notification";
+import { isUserLoggedIn } from "../../../utility/Utils";
 
 //const ToastContent = ({ t, name, role }) => {
- // return (
-   // <div className="d-flex">
-     // <div className="me-1">
-       // <Avatar size="sm" color="success" icon={<Coffee size={12} />} />
+// return (
+// <div className="d-flex">
+// <div className="me-1">
+// <Avatar size="sm" color="success" icon={<Coffee size={12} />} />
 //      </div>
-  //    <div className="d-flex flex-column">
-    //    <div className="d-flex justify-content-between">
-      //    <h6>{name}</h6>
-        //  <X
-          //  size={12}
-            //className="cursor-pointer"
-     //       onClick={() => toast.dismiss(t.id)}
-       //   />
-       // </div>
-        //<span>
-          //You have successfully logged in as an {role} user to Vuexy. Now you
-         // can start to explore. Enjoy!
-       // </span>
-    //  </div>
-  //  </div>
- // );
+//    <div className="d-flex flex-column">
+//    <div className="d-flex justify-content-between">
+//    <h6>{name}</h6>
+//  <X
+//  size={12}
+//className="cursor-pointer"
+//       onClick={() => toast.dismiss(t.id)}
+//   />
+// </div>
+//<span>
+//You have successfully logged in as an {role} user to Vuexy. Now you
+// can start to explore. Enjoy!
+// </span>
+//  </div>
+//  </div>
+// );
 //};
 
 const defaultValues = {
-  email: "admin@gmail.com",
-  password: "admin",
+  email: "niravmendapara@gmail.com",
+  password: "Nivs#111",
 
 };
 
@@ -118,7 +119,7 @@ const Login = () => {
       const response = await LoginRequest(data);
       console.log(response, "response");
       if (response?.status === 1) {
-        await handleLogin(response?.data);
+        await handleLogin(response);
         window.location.href = `${getHomeRouteForLoggedInUser("admin")}`;
         // if (response?.data.type == 0) {
         // } else {
@@ -158,37 +159,37 @@ const Login = () => {
             {/* <Link className='brand-logo' to='/' 
           onClick={e => e.preventDefault()}
           > */}
-            <svg viewBox="0 0 139 95" version="1.1" height="28"/>
-              <defs>
-                <linearGradient
-                  x1="100%"
-                  y1="10.5120544%"
-                  x2="50%"
-                  y2="89.4879456%"
-                  id="linearGradient-1"
-                >
-                  <stop stopColor="#000000" offset="0%"></stop>
-                  <stop stopColor="#FFFFFF" offset="100%"></stop>
-                </linearGradient>
-                <linearGradient
-                  x1="64.0437835%"
-                  y1="46.3276743%"
-                  x2="37.373316%"
-                  y2="100%"
-                  id="linearGradient-2"
-                >
-                  <stop stopColor="#EEEEEE" stopOpacity="0" offset="0%"></stop>
-                  <stop stopColor="#FFFFFF" offset="100%"></stop>
-                </linearGradient>
-              </defs>
-              <g
-                id="Page-1"
-                stroke="none"
-                strokeWidth="1"
-                fill="none"
-                fillRule="evenodd"
-></g>
-                <h2 className="brand-text text-primary ms-1">PHOTOVOLTAIK</h2>
+            <svg viewBox="0 0 139 95" version="1.1" height="28" />
+            <defs>
+              <linearGradient
+                x1="100%"
+                y1="10.5120544%"
+                x2="50%"
+                y2="89.4879456%"
+                id="linearGradient-1"
+              >
+                <stop stopColor="#000000" offset="0%"></stop>
+                <stop stopColor="#FFFFFF" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient
+                x1="64.0437835%"
+                y1="46.3276743%"
+                x2="37.373316%"
+                y2="100%"
+                id="linearGradient-2"
+              >
+                <stop stopColor="#EEEEEE" stopOpacity="0" offset="0%"></stop>
+                <stop stopColor="#FFFFFF" offset="100%"></stop>
+              </linearGradient>
+            </defs>
+            <g
+              id="Page-1"
+              stroke="none"
+              strokeWidth="1"
+              fill="none"
+              fillRule="evenodd"
+            ></g>
+            <h2 className="brand-text text-primary ms-1">PHOTOVOLTAIK</h2>
             <CardTitle tag="h4" className="mb-1">
               Welcome To photovoltaik
             </CardTitle>
@@ -254,7 +255,7 @@ const Login = () => {
                   Remember Me
                 </Label>
               </div> */}
-              
+
               <Button type="submit" color="primary" block>
                 Sign in
               </Button>
@@ -271,4 +272,10 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+//export default Login;
+
+const CheckLogin = () => {
+  // console.log("isUserLoggedIn() ", isUserLoggedIn());
+  return isUserLoggedIn() ? <Navigate to="/" /> : <Login />;
+};
+export default CheckLogin;

@@ -25,6 +25,7 @@ const CustomHeader = ({ handleFilter, value, handleStatusValue, statusValue, han
   return (
     <div className='invoice-list-table-header w-100 py-2'>
       <Row>
+        <h2 className='fw-bold mb-4'>Recent Project</h2>
         <Col lg='6' className='d-flex align-items-center px-0 px-lg-1'>
           <div className='d-flex align-items-center me-2'>
             <label htmlFor='rows-per-page'>Show</label>
@@ -40,9 +41,9 @@ const CustomHeader = ({ handleFilter, value, handleStatusValue, statusValue, han
               <option value='50'>50</option>
             </Input>
           </div>
-          <Button tag={Link} to='/apps/invoice/add' color='primary'>
-            Add Record
-          </Button>
+          {/* <Button tag={Link} to='/apps/invoice/add' color='primary'>
+            Add Project 
+          </Button> */}
         </Col>
         <Col
           lg='6'
@@ -61,12 +62,9 @@ const CustomHeader = ({ handleFilter, value, handleStatusValue, statusValue, han
           </div>
           <Input className='w-auto ' type='select' value={statusValue} onChange={handleStatusValue}>
             <option value=''>Select Status</option>
-            <option value='downloaded'>Downloaded</option>
-            <option value='draft'>Draft</option>
-            <option value='paid'>Paid</option>
-            <option value='partial payment'>Partial Payment</option>
-            <option value='past due'>Past Due</option>
-            <option value='sent'>Sent</option>
+            <option value='downloaded'>Active</option>
+            <option value='draft'>Old</option>
+
           </Input>
         </Col>
       </Row>

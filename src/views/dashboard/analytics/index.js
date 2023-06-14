@@ -130,13 +130,21 @@ const AnalyticsDashboard = () => {
           <CardCongratulations />
         </Col>
         <Col lg='4' sm='6'>
-          <SubscribersGained kFormatter={kFormatter} />
+          <SubscribersGained />
         </Col>
         <Col lg='4' sm='6'>
-          <OrdersReceived kFormatter={kFormatter} warning={colors.warning.main} />
+          <OrdersReceived />
         </Col>
       </Row>
-    
+
+      <Row className="match-height">
+        <Col xs="12">
+          <InvoiceList />
+        </Col>
+      </Row>
+
+
+
       <Row className='match-height'>
         <Col lg='6' xs='12'>
           <AvgSessions primary={colors.primary.main} />
@@ -169,11 +177,7 @@ const AnalyticsDashboard = () => {
           <CardAppDesign />
         </Col>
       </Row>
-      <Row className="match-height">
-        <Col xs="12">
-          <InvoiceList />
-        </Col>
-      </Row>
+
     </div>
   );
 };

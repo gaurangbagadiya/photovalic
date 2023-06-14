@@ -149,6 +149,7 @@ import PrivateRoute from "@components/routes/PrivateRoute";
 // ** Utils
 import { isObjEmpty } from "@utils";
 import AdminRoutes from "./adminRoutes";
+import ClientRoutes from "./clientRoutes";
 
 const getLayout = {
   blank: <BlankLayout />,
@@ -174,7 +175,8 @@ const Routes = [...AdminRoutes, ...AuthenticationRoutes,
 ...PageLayoutsRoutes,
 ...FormRoutes,
 ...TablesRoutes,
-...ChartsRoutes,];
+...ChartsRoutes,
+...ClientRoutes,];
 const getRouteMeta = (route) => {
   if (isObjEmpty(route.element.props)) {
     if (route.meta) {
