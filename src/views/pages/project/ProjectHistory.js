@@ -43,11 +43,9 @@ function ProjectHistory() {
                                         View Project Details
                                     </Button>
                                     <Button className='me-1' color='primary' type='submit'>
-                                        Update
+                                        Generate Report 
                                     </Button>
-                                    <Button outline color='secondary' type='submit'>
-                                        Delete
-                                    </Button>
+                                    
                                 </div>
                             </CardBody>
                         </Card>

@@ -3,11 +3,9 @@ import { Button, Card, CardBody, CardHeader, CardTitle, Col, Row, Form, Label, I
 import Breadcrumbs from '@components/breadcrumbs'
 // ** Third Party Components
 import Select from 'react-select'
-import * as yup from 'yup'
-import toast from 'react-hot-toast'
-import { Check, Plus } from 'react-feather'
+import {  Plus } from 'react-feather'
 import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
+
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MapComponent.css';
@@ -76,8 +74,6 @@ function Project() {
 
     useEffect(() => {
         if (step == 1) {
-
-
             const mapOptions = {
                 center: [50.8282, 12.9209],
                 zoom: 12,
