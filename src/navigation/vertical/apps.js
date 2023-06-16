@@ -12,17 +12,30 @@ export default [
     icon: <FilePlus size={20} />,
     navLink: '/project'
   },
+  
   {
-    id: 'projectHistory',
+    id: 'ProjectHistory',
     title: 'Project History',
-    // icon: <Mail size={20} />,
-    // navLink: '/apps/email'
+    icon: <FilePlus size={20} />,
+    navLink: '/ProjectHistory'
   },
   {
-    id: 'geography',
+    id: 'projectview',
+    title: ' View project Detail',
+    icon: <Mail size={20} />,
+    navLink: '/ProjectView'
+  },
+  {
+    id: 'Profile',
+    title: 'Profile',
+    icon: <User size={20} />,
+    navLink: '/Profile'
+  },
+  {
+    id: 'MapView',
     title: 'Map View',
-    // icon: <Mail size={20} />,
-    // navLink: '/apps/email'
+    icon: <Mail size={20} />,
+    navLink: '/MapView'
   },
   {
     id: 'profile',
