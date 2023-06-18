@@ -26,27 +26,24 @@ export default [
     navLink: '/ProjectView'
   },
   {
-    id: 'Profile',
-    title: 'Profile',
-    icon: <User size={20} />,
-    navLink: '/Profile'
-  },
-  {
     id: 'MapView',
     title: 'Map View',
     icon: <Mail size={20} />,
     navLink: '/MapView'
   },
   {
+    id: 'Profile',
+    title: 'Profile',
+    icon: <User size={20} />,
+    navLink: '/Profile'
+  },
+  
+  {
     id: 'profile',
     title: 'User Profile',
     // icon: <Mail size={20} />,
     // navLink: '../../views/pages'
   },
-
-
-
-
   {
     id: 'email',
     title: 'Email',

@@ -32,9 +32,8 @@ function Profile() {
                             </CardHeader>
                             <CardBody>
                                 <CardText>
-                                    map component here
-                                </CardText>
-                                
+                                    user Profile data
+                                </CardText>                                
                             </CardBody>
                         </Card>
                     </Col>

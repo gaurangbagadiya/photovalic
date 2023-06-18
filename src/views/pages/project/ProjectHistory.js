@@ -33,7 +33,7 @@ function ProjectHistory() {
                             </CardHeader>
                             <CardBody>
                                 <CardText>
-                                    Project Description---------------Lorem ipsum dolor sit amet, an vel affert soleat possim. Usu meis neglegentur ut, oporteat salutandi
+                                    Project Description-----                ----------Lorem ipsum dolor sit amet, an vel affert soleat possim. Usu meis neglegentur ut, oporteat salutandi
                                     dignissim at mea. Pericula erroribus quaerendum ex duo, his autem accusamus ad, alienum detracto rationibus
                                     vis et. No est volumus ocurreret vituperata.
                                 </CardText>
@@ -43,11 +43,9 @@ function ProjectHistory() {
                                         View Project Details
                                     </Button>
                                     <Button className='me-1' color='primary' type='submit'>
-                                        Update
+                                        Generate Report 
                                     </Button>
-                                    <Button outline color='secondary' type='submit'>
-                                        Delete
-                                    </Button>
+                                    
                                 </div>
                             </CardBody>
                         </Card>

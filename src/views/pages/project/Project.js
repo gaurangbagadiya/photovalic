@@ -3,20 +3,22 @@ import { Button, Card, CardBody, CardHeader, CardTitle, Col, Row, Form, Label, I
 import Breadcrumbs from '@components/breadcrumbs'
 // ** Third Party Components
 import Select from 'react-select'
-import * as yup from 'yup'
-import toast from 'react-hot-toast'
-import { Check, Plus } from 'react-feather'
+import { Plus } from 'react-feather'
 import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
+
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MapComponent.css';
 import Marker from '../../../@core/assets/Marker.png';
 
 import { selectThemeColors } from '@utils'
+import { insertProduct } from '../../../@core/api/common_api'
+import { useNavigate } from 'react-router-dom'
+import { notification } from '../../../@core/constants/notification'
 
 function Project() {
 
+    const navigate = useNavigate()
     const defaultValues = {
         latitude: "",
         longitude: "",
@@ -35,7 +37,7 @@ function Project() {
 
     const [step, setStep] = useState(0);
 
-    
+
     const PvProduct = [
         { value: 'CLSC', label: 'crystal line silicon cells' },
         { value: 'CT', label: 'Cadmium Telluride' },
@@ -43,7 +45,7 @@ function Project() {
         { value: 'unknown', label: 'Unknown' }
     ]
 
-    
+
     const pvTechnologyOptions = [
         { value: 'ocean', label: 'Ocean' },
         { value: 'blue', label: 'Blue' },
@@ -76,8 +78,6 @@ function Project() {
 
     useEffect(() => {
         if (step == 1) {
-
-
             const mapOptions = {
                 center: [50.8282, 12.9209],
                 zoom: 12,
@@ -131,11 +131,38 @@ function Project() {
     //       });
     //   };
 
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         console.log("dataaa", data);
-        if (Object.values(data).every(field => field.length > 0)) {
-            console.log("data", data);
+        //  if (Object.values(data).every(field => field.length > 0)) {
+        //    console.log("data", data);
+        //}
+
+        let productData = {
+            ...data,
+            project_name: data?.projectName,
+            project_description: data?.projectDescription,
+            product_name: data?.PvProduct?.value,
+            latitude: data?.latitude,
+            longitude: data?.longitude,
+            city: data?.city,
+            state: data?.state,
+            global_irradiation: data?.globalIrradiance,
+            avg_Tempraure: data?.averageTemperature,
+            peak_power: data?.peakPower,
+            inclination: data?.slop,
+            elevation: data?.elevation,
+            orientation: data?.orientation?.value
         }
+        let response = await insertProduct(productData)
+        console.log("respo", response);
+        notification({
+            type: response?.status == 1 ? "success" : "error",
+            message: response.message,
+        });
+        if (response?.status == 1) {
+            navigate("/ProjectView")
+        }
+
     }
 
     const handleReset = () => {
@@ -181,7 +208,7 @@ function Project() {
                             </CardHeader>
                             <CardBody>
                                 <Form onSubmit={handleSubmit(onSubmit)}>
-                                <div className='mb-1'>
+                                    <div className='mb-1'>
                                         <Label className='form-label' for='projectName'>
                                             Project Name
                                         </Label>
@@ -209,21 +236,21 @@ function Project() {
                                             name='projectDescription'
                                             defaultValue=''
                                             control={control}
-                                            render={({ field }) => <Input type='textarea' />}
+                                            render={({ field }) => <Input type='textarea'  {...field} placeholder='projectDescription' invalid={errors.projectDescription && true} />}
                                         />
                                         {errors.projectDescription && <FormFeedback>{errors.projectDescription.message}</FormFeedback>}
                                     </div>
 
 
                                     <div className='mb-1'>
-                                        <Label className='form-label' for='projectDescription'>
+                                        <Label className='form-label' for='PvProduct'>
                                             Photovoltaic System Product
                                         </Label>
                                     </div>
                                     <div className='mb-1'>
                                         <Controller
-                                            id='projectDescription'
-                                            name='projectDescription'
+                                            id='PvProduct'
+                                            name='PvProduct'
                                             defaultValue=''
                                             control={control}
                                             render={({ field }) => <Select
@@ -234,13 +261,13 @@ function Project() {
                                                 // defaultValue={pvTechnologyOptions[0]}
                                                 options={PvProduct}
                                                 isClearable={false}
-                                                invalid={errors.orientation && true} />}
+                                                invalid={errors.PvProduct && true} />}
                                         />
-                                        {errors.projectDescription && <FormFeedback>{errors.projectDescription.message}</FormFeedback>}
+                                        {errors.PvProduct && <FormFeedback>{errors.PvProduct.message}</FormFeedback>}
                                     </div>
 
 
-                                    <div className='mb-1'> <div id="map" ref={mapRef} style={{ width: 'flex', height: '600px', borderRadius: '5px' }}></div></div>
+                                    <div className='mb-1'> <div id="map" ref={mapRef} style={{ width: 'flex', height: '600px', borderRadius: '5px', zIndex: "0" }}></div></div>
 
                                     <Row>
                                         <div className='mb-1'>  <h5> Select your Location On Map</h5></div>
@@ -371,33 +398,33 @@ function Project() {
                                     <Row>
                                         <Col md="2">
                                             <div className='mb-1'>
-                                            <Label className='form-label' for='peakPower'>
-                                                Peak Power
-                                            </Label>
+                                                <Label className='form-label' for='peakPower'>
+                                                    Peak Power
+                                                </Label>
                                             </div>
                                         </Col>
                                         <Col md="4">
                                             <div className='mb-1'>
                                                 <Controller
-                                                    id='globalIrradiance'
-                                                    name='globalIrradiance'
+                                                    id='peakPower'
+                                                    name='peakPower'
                                                     defaultValue=''
                                                     control={control}
-                                                    render={({ field }) => <Input {...field} placeholder='-kWh/m²' invalid={errors.globalIrradiance && true} />}
+                                                    render={({ field }) => <Input {...field} placeholder='-kWh/m²' invalid={errors.peakPower && true} />}
                                                 />
-                                                {errors.globalIrradiance && <FormFeedback>{errors.globalIrradiance.message}</FormFeedback>}
+                                                {errors.peakPower && <FormFeedback>{errors.peakPower.message}</FormFeedback>}
                                             </div>
                                         </Col>
                                         <Col md="2">
                                             <div className='mb-1'>
-                                            <Label className='form-label' for='orientation'>
+                                                <Label className='form-label' for='orientation'>
                                                     Orientation :
                                                 </Label>
                                             </div>
                                         </Col>
                                         <Col md="4">
                                             <div className='mb-1'>
-                                            <Controller
+                                                <Controller
                                                     id='orientation'
                                                     name='orientation'
                                                     defaultValue=''
@@ -411,6 +438,18 @@ function Project() {
                                                         options={orientationOptions}
                                                         isClearable={false}
                                                         invalid={errors.orientation && true}
+                                                    // value={
+                                                    //     orientationOptions &&
+                                                    //     orientationOptions?.map((s) => {
+                                                    //       if (s?.c_id == videoData?.c_id) {
+                                                    //         // console.log("s.name ", s?.course_name);
+                                                    //         return { label: s?.course_name, value: s?.c_id };
+                                                    //       }
+                                                    //     })
+                                                    //   }
+                                                    // onChange={(e) => {
+                                                    //     field.onChange(e?.value);
+                                                    //   }}
                                                     />}
                                                 />
                                                 {errors.orientation && <FormFeedback>{errors.orientation.message}</FormFeedback>}
@@ -439,21 +478,21 @@ function Project() {
                                         </Col>
                                         <Col md="2">
                                             <div className='mb-1'>
-                                                <Label className='form-label' for='elivation'>
-                                                    Elivation(m) :
+                                                <Label className='form-label' for='elevation'>
+                                                    Elevation (m) :
                                                 </Label>
                                             </div>
                                         </Col>
                                         <Col md="4">
                                             <div className='mb-1'>
                                                 <Controller
-                                                    id='elivation'
-                                                    name='elivation'
+                                                    id='elevation'
+                                                    name='elevation'
                                                     defaultValue=''
                                                     control={control}
-                                                    render={({ field }) => <Input {...field} placeholder='elivation in m' invalid={errors.elivation && true} />}
+                                                    render={({ field }) => <Input {...field} placeholder='elevation in m' invalid={errors.elevation && true} />}
                                                 />
-                                                {errors.elivation && <FormFeedback>{errors.elivation.message}</FormFeedback>}
+                                                {errors.elevation && <FormFeedback>{errors.elevation.message}</FormFeedback>}
                                             </div>
                                         </Col>
                                     </Row>
