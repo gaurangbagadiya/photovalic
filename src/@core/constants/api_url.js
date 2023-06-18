@@ -7,4 +7,6 @@ export const ApiRoutes = {
   CHECKEMAIL: "check-email",
   CHECKMOBILE: "check-mobile",
   GETATTRIBUTEBYID: "get-attributebyid",
+  GETALLPRODUCTS:"/projects/getproject",
+  INSERTPRODUCT:"/projects/add"
 };

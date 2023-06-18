@@ -46,3 +46,23 @@ export const getAttributeById = async (type) => {
     throw error;
   }
 };
+
+export const getAllProducts = async () => {
+  try {
+    const res = await Request.get(ApiRoutes.GETALLPRODUCTS);
+    console.log("res");
+    return res?.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const insertProduct = async(data)=>{
+  try {
+    const res = await Request.post(ApiRoutes.INSERTPRODUCT, data);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}
+
