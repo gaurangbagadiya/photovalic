@@ -9,12 +9,4 @@ const LoginRequest = async (data) => {
     throw error;
   }
 };
-const RegistrationRequest = async (formdata) => {
-  try {
-    const res = await Request.post(ApiRoutes.REGISTRATION, formdata);
-    return res;
-  } catch (error) {
-    throw error;
-  }
-};
-export { LoginRequest, RegistrationRequest };
+export { LoginRequest };

@@ -5,57 +5,57 @@ export default [
   {
     header: 'User Interface'
   },
-  {
-    id: 'typography',
-    title: 'Typography',
-    icon: <Type size={12} />,
-    navLink: '/ui-element/typography'
-  },
+  // {
+  //   id: 'typography',
+  //   title: 'Typography',
+  //   icon: <Type size={12} />,
+  //   navLink: '/ui-element/typography'
+  // },
   {
     id: 'feather',
     title: 'Feather',
     icon: <Eye size={20} />,
     navLink: '/icons/reactfeather'
   },
-  {
-    id: 'cards',
-    title: 'Card',
-    icon: <CreditCard size={20} />,
-    badge: 'light-success',
-    badgeText: 'New',
-    children: [
-      {
-        id: 'basic',
-        title: 'Basic',
-        icon: <Circle size={12} />,
-        navLink: '/cards/basic'
-      },
-      {
-        id: 'cardAdvance',
-        title: 'Advance',
-        icon: <Circle size={12} />,
-        navLink: '/cards/advance'
-      },
-      {
-        id: 'cardStatistics',
-        title: 'Statistics',
-        icon: <Circle size={12} />,
-        navLink: '/cards/statistics'
-      },
-      {
-        id: 'CardAnalytics',
-        title: 'Analytics',
-        icon: <Circle size={12} />,
-        navLink: '/cards/analytics'
-      },
-      {
-        id: 'cardActions',
-        title: 'Actions',
-        icon: <Circle size={12} />,
-        navLink: '/cards/action'
-      }
-    ]
-  },
+  // {
+  //   id: 'cards',
+  //   title: 'Card',
+  //   icon: <CreditCard size={20} />,
+  //   badge: 'light-success',
+  //   badgeText: 'New',
+  //   children: [
+  //     {
+  //       id: 'basic',
+  //       title: 'Basic',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/cards/basic'
+  //     },
+  //     // {
+  //     //   id: 'cardAdvance',
+  //     //   title: 'Advance',
+  //     //   icon: <Circle size={12} />,
+  //     //   navLink: '/cards/advance'
+  //     // },
+  //     {
+  //       id: 'cardStatistics',
+  //       title: 'Statistics',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/cards/statistics'
+  //     },
+  //     {
+  //       id: 'CardAnalytics',
+  //       title: 'Analytics',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/cards/analytics'
+  //     },
+  //     {
+  //       id: 'cardActions',
+  //       title: 'Actions',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/cards/action'
+  //     }
+  //   ]
+  // },
   {
     id: 'components',
     title: 'Components',
@@ -310,41 +310,4 @@ export default [
       }
     ]
   },
-  {
-    id: 'pageLayouts',
-    title: 'Page Layouts',
-    icon: <Layout size={20} />,
-    children: [
-      {
-        id: 'collapsedMenu',
-        title: 'Collapsed Menu',
-        icon: <Circle size={12} />,
-        navLink: '/page-layout/collapse-menu'
-      },
-      {
-        id: 'layoutBoxed',
-        title: 'Layout Boxed',
-        icon: <Circle size={12} />,
-        navLink: '/page-layout/layout-boxed'
-      },
-      {
-        id: 'withoutMenu',
-        title: 'Without Menu',
-        icon: <Circle size={12} />,
-        navLink: '/page-layout/without-menu'
-      },
-      {
-        id: 'layoutEmpty',
-        title: 'Layout Empty',
-        icon: <Circle size={12} />,
-        navLink: '/page-layout/layout-empty'
-      },
-      {
-        id: 'layoutBlank',
-        title: 'Layout Blank',
-        icon: <Circle size={12} />,
-        navLink: '/page-layout/layout-blank'
-      }
-    ]
-  }
 ]

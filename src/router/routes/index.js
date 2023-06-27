@@ -10,7 +10,7 @@ import ChartsRoutes from "./Charts";
 import DashboardRoutes from "./Dashboards";
 import UiElementRoutes from "./UiElements";
 import ExtensionsRoutes from "./Extensions";
-import PageLayoutsRoutes from "./PageLayouts";
+// import PageLayoutsRoutes from "./PageLayouts";
 // import AuthenticationRoutes from "./Authentication";
 
 // // ** Layouts
@@ -172,7 +172,7 @@ const Routes = [...AdminRoutes, ...AuthenticationRoutes,
 ...PagesRoutes,
 ...UiElementRoutes,
 ...ExtensionsRoutes,
-...PageLayoutsRoutes,
+// ...PageLayoutsRoutes,
 ...FormRoutes,
 ...TablesRoutes,
 ...ChartsRoutes,
