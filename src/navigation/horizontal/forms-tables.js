@@ -110,31 +110,31 @@ export default [
         icon: <RotateCw />,
         navLink: '/forms/form-repeater'
       },
-      {
-        id: 'tablesReactstrap',
-        title: 'Table',
-        icon: <Server />,
-        navLink: '/tables/reactstrap'
-      },
-      {
-        id: 'dataTable',
-        title: 'DataTable',
-        icon: <Grid />,
-        children: [
-          {
-            id: 'dtBasic',
-            title: 'Basic',
-            icon: <Circle />,
-            navLink: '/datatables/basic'
-          },
-          {
-            id: 'dtAdvance',
-            title: 'Advanced',
-            icon: <Circle />,
-            navLink: '/datatables/advance'
-          }
-        ]
-      }
+      // {
+      //   id: 'tablesReactstrap',
+      //   title: 'Table',
+      //   icon: <Server />,
+      //   navLink: '/tables/reactstrap'
+      // },
+      // {
+      //   id: 'dataTable',
+      //   title: 'DataTable',
+      //   icon: <Grid />,
+      //   children: [
+      //     {
+      //       id: 'dtBasic',
+      //       title: 'Basic',
+      //       icon: <Circle />,
+      //       navLink: '/datatables/basic'
+      //     },
+      //     {
+      //       id: 'dtAdvance',
+      //       title: 'Advanced',
+      //       icon: <Circle />,
+      //       navLink: '/datatables/advance'
+      //     }
+      //   ]
+      // }
     ]
   }
 ]
