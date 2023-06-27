@@ -199,17 +199,17 @@
 
 // --- share project start ----- //
 
-@include media-breakpoint-down(lg) {
-  #shareProject {
-    .list-group {
-      .dropdown-toggle {
-        padding: 0.5rem;
-        &::after {
-          left: 0;
-        }
-      }
-    }
-  }
-}
+// @include media-breakpoint-down(lg) {
+//   #shareProject {
+//     .list-group {
+//       .dropdown-toggle {
+//         padding: 0.5rem;
+//         &::after {
+//           left: 0;
+//         }
+//       }
+//     }
+//   }
+// }
 
 // --- share project end ----- //

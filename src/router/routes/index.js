@@ -5,7 +5,7 @@
 import AppRoutes from "./Apps";
 import FormRoutes from "./Forms";
 import PagesRoutes from "./Pages";
-import TablesRoutes from "./Tables";
+// import TablesRoutes from "./Tables";
 import ChartsRoutes from "./Charts";
 import DashboardRoutes from "./Dashboards";
 import UiElementRoutes from "./UiElements";
@@ -174,7 +174,7 @@ const Routes = [...AdminRoutes, ...AuthenticationRoutes,
 ...ExtensionsRoutes,
 // ...PageLayoutsRoutes,
 ...FormRoutes,
-...TablesRoutes,
+// ...TablesRoutes,
 ...ChartsRoutes,
 ...ClientRoutes,];
 const getRouteMeta = (route) => {

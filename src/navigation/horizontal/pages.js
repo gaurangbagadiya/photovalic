@@ -148,12 +148,12 @@ export default [
           },
         ],
       },
-      {
-        id: "accountSettings",
-        title: "Account Settings",
-        icon: <Settings />,
-        navLink: "/pages/account-settings",
-      },
+      // {
+      //   id: "accountSettings",
+      //   title: "Account Settings",
+      //   icon: <Settings />,
+      //   navLink: "/pages/account-settings",
+      // },
       {
         id: "profile",
         title: "Profile",
@@ -161,36 +161,36 @@ export default [
         navLink: "/pages/profile",
         collapsed: true,
       },
-      {
-        id: "faq",
-        title: "FAQ",
-        icon: <HelpCircle />,
-        navLink: "/pages/faq",
-      },
-      {
-        id: "knowledgeBase",
-        title: "Knowledge Base",
-        icon: <Info />,
-        navLink: "/pages/knowledge-base",
-        parentOf: [
-          "/pages/knowledge-base/category/questions",
-          "/pages/knowledge-base/category",
-        ],
-      },
+      // {
+      //   id: "faq",
+      //   title: "FAQ",
+      //   icon: <HelpCircle />,
+      //   navLink: "/pages/faq",
+      // },
+      // {
+      //   id: "knowledgeBase",
+      //   title: "Knowledge Base",
+      //   icon: <Info />,
+      //   navLink: "/pages/knowledge-base",
+      //   parentOf: [
+      //     "/pages/knowledge-base/category/questions",
+      //     "/pages/knowledge-base/category",
+      //   ],
+      // },
 
-      {
-        id: "pricing",
-        title: "Pricing",
-        icon: <DollarSign />,
-        navLink: "/pages/pricing",
-      },
-      {
-        id: "license",
-        title: "License",
-        icon: <FileText />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/license",
-      },
+      // {
+      //   id: "pricing",
+      //   title: "Pricing",
+      //   icon: <DollarSign />,
+      //   navLink: "/pages/pricing",
+      // },
+      // {
+      //   id: "license",
+      //   title: "License",
+      //   icon: <FileText />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/license",
+      // },
       {
         id: "api-key",
         title: "API Key",
@@ -260,13 +260,13 @@ export default [
           },
         ],
       },
-      {
-        id: "modal-examples",
-        title: "Modal Examples",
-        icon: <Square size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/modal-examples",
-      },
+      // {
+      //   id: "modal-examples",
+      //   title: "Modal Examples",
+      //   icon: <Square size={12} />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/modal-examples",
+      // },
     ],
   },
 ];
