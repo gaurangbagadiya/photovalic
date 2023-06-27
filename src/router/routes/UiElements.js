@@ -1,12 +1,12 @@
 import { lazy } from 'react'
 
-const Typography = lazy(() => import('../../views/ui-elements/typography'))
+// const Typography = lazy(() => import('../../views/ui-elements/typography'))
 const Icons = lazy(() => import('../../views/ui-elements/icons'))
-const CardsBasic = lazy(() => import('../../views/ui-elements/cards/basic'))
-const CardsAdvance = lazy(() => import('../../views/ui-elements/cards/advance'))
-const CardsStatistics = lazy(() => import('../../views/ui-elements/cards/statistics'))
-const CardsAnalytics = lazy(() => import('../../views/ui-elements/cards/analytics'))
-const CardsActions = lazy(() => import('../../views/ui-elements/cards/actions'))
+// const CardsBasic = lazy(() => import('../../views/ui-elements/cards/basic'))
+// const CardsAdvance = lazy(() => import('../../views/ui-elements/cards/advance'))
+// const CardsStatistics = lazy(() => import('../../views/ui-elements/cards/statistics'))
+// const CardsAnalytics = lazy(() => import('../../views/ui-elements/cards/analytics'))
+// const CardsActions = lazy(() => import('../../views/ui-elements/cards/actions'))
 const Accordion = lazy(() => import('../../views/components/accordion'))
 const Alerts = lazy(() => import('../../views/components/alerts'))
 const Autocomplete = lazy(() => import('../../views/components/autocomplete'))
@@ -35,34 +35,34 @@ const Toasts = lazy(() => import('../../views/components/toasts'))
 const Tooltips = lazy(() => import('../../views/components/tooltips'))
 
 const UiElementRoutes = [
-  {
-    element: <Typography />,
-    path: '/ui-element/typography'
-  },
+  // {
+  //   element: <Typography />,
+  //   path: '/ui-element/typography'
+  // },
   {
     element: <Icons />,
     path: '/icons/reactfeather'
   },
-  {
-    path: '/cards/basic',
-    element: <CardsBasic />
-  },
-  {
-    path: '/cards/advance',
-    element: <CardsAdvance />
-  },
-  {
-    path: '/cards/statistics',
-    element: <CardsStatistics />
-  },
-  {
-    path: '/cards/analytics',
-    element: <CardsAnalytics />
-  },
-  {
-    path: '/cards/action',
-    element: <CardsActions />
-  },
+  // {
+  //   path: '/cards/basic',
+  //   element: <CardsBasic />
+  // },
+  // {
+  //   path: '/cards/advance',
+  //   element: <CardsAdvance />
+  // },
+  // {
+  //   path: '/cards/statistics',
+  //   element: <CardsStatistics />
+  // },
+  // {
+  //   path: '/cards/analytics',
+  //   element: <CardsAnalytics />
+  // },
+  // {
+  //   path: '/cards/action',
+  //   element: <CardsActions />
+  // },
   {
     element: <Accordion />,
     path: '/components/accordion'

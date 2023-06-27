@@ -7,57 +7,57 @@ export default [
     title: 'User Interface',
     icon: <Layers />,
     children: [
-      {
-        id: 'typography',
-        title: 'Typography',
-        icon: <Type />,
-        navLink: '/ui-element/typography'
-      },
+      // {
+      //   id: 'typography',
+      //   title: 'Typography',
+      //   icon: <Type />,
+      //   navLink: '/ui-element/typography'
+      // },
       {
         id: 'feather',
         title: 'Feather',
         icon: <Eye />,
         navLink: '/icons/reactfeather'
       },
-      {
-        id: 'cards',
-        title: 'Card',
-        icon: <CreditCard />,
-        badge: 'success',
-        badgeText: 'New',
-        children: [
-          {
-            id: 'basic',
-            title: 'Basic',
-            icon: <Circle />,
-            navLink: '/cards/basic'
-          },
-          {
-            id: 'cardAdvance',
-            title: 'Advance',
-            icon: <Circle />,
-            navLink: '/cards/advance'
-          },
-          {
-            id: 'cardStatistics',
-            title: 'Statistics',
-            icon: <Circle />,
-            navLink: '/cards/statistics'
-          },
-          {
-            id: 'CardAnalytics',
-            title: 'Analytics',
-            icon: <Circle />,
-            navLink: '/cards/analytics'
-          },
-          {
-            id: 'cardActions',
-            title: 'Actions',
-            icon: <Circle />,
-            navLink: '/cards/action'
-          }
-        ]
-      },
+      // {
+      //   id: 'cards',
+      //   title: 'Card',
+      //   icon: <CreditCard />,
+      //   badge: 'success',
+      //   badgeText: 'New',
+      //   children: [
+      //     {
+      //       id: 'basic',
+      //       title: 'Basic',
+      //       icon: <Circle />,
+      //       navLink: '/cards/basic'
+      //     },
+      //     // {
+      //     //   id: 'cardAdvance',
+      //     //   title: 'Advance',
+      //     //   icon: <Circle />,
+      //     //   navLink: '/cards/advance'
+      //     // },
+      //     {
+      //       id: 'cardStatistics',
+      //       title: 'Statistics',
+      //       icon: <Circle />,
+      //       navLink: '/cards/statistics'
+      //     },
+      //     // {
+      //     //   id: 'CardAnalytics',
+      //     //   title: 'Analytics',
+      //     //   icon: <Circle />,
+      //     //   navLink: '/cards/analytics'
+      //     // },
+      //     {
+      //       id: 'cardActions',
+      //       title: 'Actions',
+      //       icon: <Circle />,
+      //       navLink: '/cards/action'
+      //     }
+      //   ]
+      // },
       {
         id: 'components',
         title: 'Components',
@@ -313,37 +313,6 @@ export default [
           }
         ]
       },
-      {
-        id: 'pageLayouts',
-        title: 'Page Layouts',
-        icon: <Layout />,
-        children: [
-          {
-            id: 'layoutBoxed',
-            title: 'Layout Boxed',
-            icon: <Circle />,
-            navLink: '/page-layout/layout-boxed'
-          },
-          {
-            id: 'withoutMenu',
-            title: 'Without Menu',
-            icon: <Circle />,
-            navLink: '/page-layout/without-menu'
-          },
-          {
-            id: 'layoutEmpty',
-            title: 'Layout Empty',
-            icon: <Circle />,
-            navLink: '/page-layout/layout-empty'
-          },
-          {
-            id: 'layoutBlank',
-            title: 'Layout Blank',
-            icon: <Circle />,
-            navLink: '/page-layout/layout-blank'
-          }
-        ]
-      }
     ]
   }
 ]

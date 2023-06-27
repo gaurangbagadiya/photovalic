@@ -9,7 +9,7 @@ const Footer = () => {
         <a href='https://1.envato.market/pixinvent_portfolio' target='_blank' rel='noopener noreferrer'>
           Pixinvent
         </a>
-        <span className='d-none d-sm-inline-block'>, All rights Reserved</span>
+        <span className='d-none d-sm-inline-block'>, All rights Reserved</span>ha 
       </span>
       <span className='float-md-end d-none d-md-block'>
         Hand-crafted & Made with
