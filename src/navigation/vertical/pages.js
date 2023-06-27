@@ -7,13 +7,13 @@ export default [
     title: "Pages",
     icon: <FileText size={20} />,
     children: [
-      {
-        id: "accountSettings",
-        title: "Account Settings",
-        icon: <Circle size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/account-settings",
-      },
+      // {
+      //   id: "accountSettings",
+      //   title: "Account Settings",
+      //   icon: <Circle size={12} />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/account-settings",
+      // },
       {
         id: "profile",
         title: "Profile",
@@ -86,67 +86,7 @@ export default [
           },
         ],
       },
-      {
-        id: "mailTemplate",
-        title: "Mail Template",
-        icon: <Circle size={12} />,
-        children: [
-          {
-            id: "welcomeTemp",
-            title: "Welcome",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-welcome.html",
-            newTab: true,
-            externalLink: true,
-          },
-          {
-            id: "resetPassTemp",
-            title: "Reset Password",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-reset-password.html",
-            newTab: true,
-            externalLink: true,
-          },
-          {
-            id: "verifyEmailTemp",
-            title: "Verify Email",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-verify-email.html",
-            newTab: true,
-            externalLink: true,
-          },
-          {
-            id: "deactivateAccountTemp",
-            title: "Deactivate Account",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-deactivate-account.html",
-            newTab: true,
-            externalLink: true,
-          },
-          {
-            id: "invoiceMailTemp",
-            title: "Invoice",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-invoice.html",
-            newTab: true,
-            externalLink: true,
-          },
-          {
-            id: "promotionalMailTemp",
-            title: "Promotional",
-            permissions: ["admin", "editor"],
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-promotional.html",
-            newTab: true,
-            externalLink: true,
-          },
-        ],
-      },
+    
       {
         id: "miscellaneous",
         title: "Miscellaneous",

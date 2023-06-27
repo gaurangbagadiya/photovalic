@@ -1,10 +1,11 @@
 import Request from ".";
 
 import { ApiRoutes } from "../constants";
+import { notification } from "../constants/notification";
 
-export const OtpRequest = async (formdata) => {
+export const forgotPassword = async (formdata) => {
   try {
-    const res = await Request.post(ApiRoutes.OTP, formdata);
+    const res = await Request.post(ApiRoutes.FORGOTPASSWORD, formdata);
     return res?.data;
   } catch (error) {
     throw error;
@@ -47,22 +48,112 @@ export const getAttributeById = async (type) => {
   }
 };
 
-export const getAllProducts = async () => {
+export const getAllProjects = async () => {
   try {
-    const res = await Request.get(ApiRoutes.GETALLPRODUCTS);
+    const res = await Request.get(ApiRoutes.GETALLPROJECTS);
     console.log("res");
-    return res?.data;
+    return res;
   } catch (error) {
     throw error;
   }
 };
 
-export const insertProduct = async(data)=>{
+export const getAllProjectsWithProducts = async () => {
   try {
-    const res = await Request.post(ApiRoutes.INSERTPRODUCT, data);
+    const res = await Request.get(ApiRoutes.GETALLPROJECTSWITHPRODUCTS);
+    console.log("res");
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const getProjectById = async (id) => {
+  try {
+    const res = await Request.get(ApiRoutes.GETPROJECTBYID + "/" + id);
+    console.log("res");
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const insertProject = async (data) => {
+  try {
+    const res = await Request.post(ApiRoutes.INSERTPROJECT, data);
     return res;
   } catch (error) {
     throw error;
   }
 }
 
+export const deleteProject = async (id) => {
+  try {
+    const res = await Request.delete(ApiRoutes.DELETEPROJECTBYID + "/" + id);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const insertProduct = async (data) => {
+  try {
+    const res = await Request.post(ApiRoutes.INSERTPRODUCT, data);
+    return res;
+  } catch (error) {
+    console.log("aaaaaaaaaaaaaaaaaaaa0",error?.message);
+    notification("error", error?.message?.message)
+    throw error;
+  }
+}
+
+
+export const deleteProduct = async (id) => {
+  try {
+    const res = await Request.delete(ApiRoutes.DELETEPRODUCTBYID + "/" + id);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const getAllProductsById = async (id) => {
+  try {
+    const res = await Request.get(ApiRoutes.GETALLPRODUCTSBYID + "/" + id);
+    console.log("res");
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getAllPredefine = async () => {
+  try {
+    const res = await Request.get(ApiRoutes.GETALLPREDEFINE);
+    return res;
+
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateProduct = async (data) => {
+  try {
+    const res = await Request.put(ApiRoutes.UPDATEPRODUCT + "/" + data?.product_id, data);
+    return res;
+
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const updateUser = async (id, updatedData) => {
+  try {
+    const res = await Request.put(ApiRoutes.UPDATEUSERBYID + "/" + id, updatedData);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}

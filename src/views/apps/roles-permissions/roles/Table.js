@@ -67,10 +67,8 @@ const CustomHeader = ({ plan, handlePlanChange, handlePerPage, rowsPerPage, hand
           </div>
           <Input value={plan} type='select' style={{ width: '10rem' }} onChange={e => handlePlanChange(e.target.value)}>
             <option value=''>Select Role</option>
-            <option value='basic'>Basic</option>
-            <option value='company'>Company</option>
-            <option value='enterprise'>Enterprise</option>
-            <option value='team'>Team</option>
+            <option value=''>Active Project</option>
+            <option value=''>In Active Project</option>
           </Input>
         </Col>
       </Row>

@@ -1,5 +1,5 @@
 // ** Icons Import
-import { Mail, MessageSquare, CheckSquare, Calendar, FileText, Circle, ShoppingCart, User, Shield, FilePlus } from 'react-feather'
+import { Mail, MessageSquare, CheckSquare, Calendar, FileText, Circle, ShoppingCart, User, Shield, FilePlus, Eye,Map} from 'react-feather'
 
 export default [
   {
@@ -14,33 +14,30 @@ export default [
   },
   
   {
-    id: 'ProjectHistory',
+    id: 'projecthistory',
     title: 'Project History',
-    icon: <FilePlus size={20} />,
-    navLink: '/ProjectHistory'
-  },
-  {
-    id: 'projectview',
-    title: ' View project Detail',
-    icon: <Mail size={20} />,
-    navLink: '/ProjectView'
-  },
-  {
-    id: 'MapView',
-    title: 'Map View',
-    icon: <Mail size={20} />,
-    navLink: '/MapView'
-  },
-  {
-    id: 'Profile',
-    title: 'Profile',
-    icon: <User size={20} />,
-    navLink: '/Profile'
+    icon: <Eye size={20} />,
+    navLink: '/projecthistory'
   },
   
   {
+    id: 'MapView',
+    title: 'Map View',
+    icon: <Map size={20} />,
+    navLink: '/mapview'
+  },
+
+  {
+    id: 'Report',
+    title: 'Report',
+    icon: <User size={20} />,
+    navLink: '/report'
+  },
+
+
+  {
     id: 'profile',
-    title: 'User Profile',
+    title: '-----------------------------',
     // icon: <Mail size={20} />,
     // navLink: '../../views/pages'
   },

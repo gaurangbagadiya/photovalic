@@ -4,9 +4,26 @@ export const ApiRoutes = {
 
   LOGIN: "users/login",
   REGISTER: "users/register",
+  FORGOTPASSWORD:"users/forgot-password",
   CHECKEMAIL: "check-email",
   CHECKMOBILE: "check-mobile",
+
   GETATTRIBUTEBYID: "get-attributebyid",
-  GETALLPRODUCTS:"/projects/getproject",
-  INSERTPRODUCT:"/projects/add"
+
+  GETALLPROJECTS: "/projects/getproject",
+  GETALLPROJECTSWITHPRODUCTS:"/projects/getprojectwithproducts",
+  GETPROJECTBYID: "/projects/projectbyid",
+  INSERTPROJECT: "/projects/add",
+  DELETEPROJECTBYID : "/projects/Alldelete",
+
+  INSERTPRODUCT: "/Product/add",
+  DELETEPRODUCTBYID:"Product/delete",
+  
+  UPDATEPRODUCT: "/Product/update",
+  GETALLPRODUCTSBYID: "/Product/allproducts",
+
+
+  GETALLPREDEFINE: "/Predefine/getAllData",
+  UPDATEUSERBYID: "/users/update"
+  
 };

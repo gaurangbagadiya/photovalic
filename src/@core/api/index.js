@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { ApiRoutes } from "../constants";
 import secureLocalStorage from "react-secure-storage";
+import { handleLogout } from "../../utility/Utils";
 
 export const axios = Axios.create({
   rejectUnauthorized: false, // (NOTE: this will disable client verification)
@@ -32,6 +33,14 @@ axios.interceptors.response.use(
   },
   (error) => {
     console.log("error", error);
+
+    if (error?.response?.status === 403) {
+      console.log("ifffffffffffffffff");
+      handleLogout();
+      // window.location.replace("/");
+      // window.location.href("/");
+    }
+
     return Promise.reject(error);
   }
 );

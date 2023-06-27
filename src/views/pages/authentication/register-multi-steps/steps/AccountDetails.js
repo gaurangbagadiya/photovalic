@@ -71,6 +71,7 @@ const AccountDetails = ({ stepper }) => {
           type: "success",
           message: response.message,
         });
+        navigate("/login")
       } else {
         notification({
           type: "error",

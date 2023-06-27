@@ -66,16 +66,13 @@ const CustomHeader = ({
           </div>
           <div className='mt-50 width-200 me-1 mt-sm-0 mt-1'>
             <Input type='select' name='select' value={role} onChange={e => handleAssignedToChange(e.target.value)}>
-              <option value=''>Select Role</option>
-              <option value='administrator'>Administrator</option>
-              <option value='manager'>Manager</option>
-              <option value='user'>User</option>
-              <option value='support'>Support</option>
-              <option value='restricted-user'>Restricted User</option>
+              <option value=''>Select status</option>
+              <option value='administrator'>Active Project</option>
+              <option value='manager'>Inactive Project</option>
             </Input>
           </div>
           <Button className='add-permission mt-sm-0 mt-1' color='primary' onClick={() => setShow(true)}>
-            Add Permission
+            
           </Button>
         </div>
       </Col>

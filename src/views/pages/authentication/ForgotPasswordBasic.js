@@ -25,6 +25,7 @@ import {
 // ** Styles
 import "@styles/react/pages/page-authentication.scss";
 import { isUserLoggedIn } from "../../../utility/Utils";
+import { forgotPassword } from "../../../@core/api/common_api";
 const ForgotPasswordBasic = () => {
   const defaultValues = { email: "" };
   const validationSchema = yup.object().shape({
@@ -40,9 +41,12 @@ const ForgotPasswordBasic = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     if (Object.values(data).every((field) => field.length > 0)) {
       console.log(data);
+      let response = await forgotPassword(data);
+      console.log("response",response);
+
     }
   };
   if (!isUserLoggedIn()) {
