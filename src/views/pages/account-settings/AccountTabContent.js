@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 
 // ** Third Party Components
 import Select from 'react-select'
@@ -14,63 +14,15 @@ import { Row, Col, Form, Card, Input, Label, Button, CardBody, CardTitle, CardHe
 import { selectThemeColors } from '@utils'
 
 // ** Demo Components
+import secureLocalStorage from 'react-secure-storage'
+
 import DeleteAccount from './DeleteAccount'
-
-const countryOptions = [
-  { value: 'uk', label: 'UK' },
-  { value: 'usa', label: 'USA' },
-  { value: 'france', label: 'France' },
-  { value: 'russia', label: 'Russia' },
-  { value: 'canada', label: 'Canada' }
-]
-
-const languageOptions = [
-  { value: 'english', label: 'English' },
-  { value: 'spanish', label: 'Spanish' },
-  { value: 'french', label: 'French' },
-  { value: 'german', label: 'German' },
-  { value: 'dutch', label: 'Dutch' }
-]
-
-const currencyOptions = [
-  { value: 'usd', label: 'USD' },
-  { value: 'euro', label: 'Euro' },
-  { value: 'pound', label: 'Pound' },
-  { value: 'bitcoin', label: 'Bitcoin' }
-]
-
-const timeZoneOptions = [
-  { value: '(GMT-12:00) International Date Line West', label: '(GMT-12:00) International Date Line West' },
-  { value: '(GMT-11:00) Midway Island, Samoa', label: '(GMT-11:00) Midway Island, Samoa' },
-  { value: '(GMT-10:00) Hawaii', label: '(GMT-10:00) Hawaii' },
-  { value: '(GMT-09:00) Alaska', label: '(GMT-09:00) Alaska' },
-  { value: '(GMT-08:00) Pacific Time (US & Canada)', label: '(GMT-08:00) Pacific Time (US & Canada)' },
-  { value: '(GMT-08:00) Tijuana, Baja California', label: '(GMT-08:00) Tijuana, Baja California' },
-  { value: '(GMT-07:00) Arizona', label: '(GMT-07:00) Arizona' },
-  { value: '(GMT-07:00) Chihuahua, La Paz, Mazatlan', label: '(GMT-07:00) Chihuahua, La Paz, Mazatlan' },
-  { value: '(GMT-07:00) Mountain Time (US & Canada)', label: '(GMT-07:00) Mountain Time (US & Canada)' },
-  { value: '(GMT-06:00) Central America', label: '(GMT-06:00) Central America' },
-  { value: '(GMT-06:00) Central Time (US & Canada)', label: '(GMT-06:00) Central Time (US & Canada)' },
-  {
-    value: '(GMT-06:00) Guadalajara, Mexico City, Monterrey',
-    label: '(GMT-06:00) Guadalajara, Mexico City, Monterrey'
-  },
-  { value: '(GMT-06:00) Saskatchewan', label: '(GMT-06:00) Saskatchewan' },
-  { value: '(GMT-05:00) Bogota, Lima, Quito, Rio Branco', label: '(GMT-05:00) Bogota, Lima, Quito, Rio Branco' },
-  { value: '(GMT-05:00) Eastern Time (US & Canada)', label: '(GMT-05:00) Eastern Time (US & Canada)' },
-  { value: '(GMT-05:00) Indiana (East)', label: '(GMT-05:00) Indiana (East)' },
-  { value: '(GMT-04:00) Atlantic Time (Canada)', label: '(GMT-04:00) Atlantic Time (Canada)' },
-  { value: '(GMT-04:00) Caracas, La Paz', label: '(GMT-04:00) Caracas, La Paz' },
-  { value: '(GMT-04:00) Manaus', label: '(GMT-04:00) Manaus' },
-  { value: '(GMT-04:00) Santiago', label: '(GMT-04:00) Santiago' },
-  { value: '(GMT-03:30) Newfoundland', label: '(GMT-03:30) Newfoundland' }
-]
 
 const AccountTabs = ({ data }) => {
   // ** Hooks
   const defaultValues = {
-    lastName: '',
-    firstName: data.fullName.split(' ')[0]
+    lastname: '',
+    firstname: ''
   }
   const {
     control,
@@ -81,6 +33,17 @@ const AccountTabs = ({ data }) => {
 
   // ** States
   const [avatar, setAvatar] = useState(data.avatar ? data.avatar : '')
+  const [userData, setUserData] = useState(null);
+
+
+  useEffect(() => {
+    // const tempdata = UserData
+    // setUserData(tempdata); 
+    const data1 = secureLocalStorage.getItem("userData")
+    setUserData(JSON.parse(data1));
+  }, [])
+  console.log('user details', userData);
+
 
   const onChange = e => {
     const reader = new FileReader(),
@@ -92,18 +55,19 @@ const AccountTabs = ({ data }) => {
   }
 
   const onSubmit = data => {
-    if (Object.values(data).every(field => field.length > 0)) {
-      return null
-    } else {
-      for (const key in data) {
-        if (data[key].length === 0) {
-          setError(key, {
-            type: 'manual'
-          })
-        }
-      }
-    }
+    // if (Object.values(data).every(field => field.length > 0)) {
+    //   return null
+    // } else {
+      // for (const key in data) {
+      //   if (data[key].length === 0) {
+      //     setError(key, {
+      //       type: 'manual'
+      //     })
+      //   }
+      // }
+    // }
   }
+
 
   const handleImgReset = () => {
     setAvatar(require('@src/assets/images/avatars/avatar-blank.png').default)
@@ -113,7 +77,7 @@ const AccountTabs = ({ data }) => {
     <Fragment>
       <Card>
         <CardHeader className='border-bottom'>
-          <CardTitle tag='h4'>Profile Details</CardTitle>
+          <CardTitle tag='h4'>Update Profile Details</CardTitle>
         </CardHeader>
         <CardBody className='py-2 my-25'>
           <div className='d-flex'>
@@ -136,130 +100,126 @@ const AccountTabs = ({ data }) => {
           <Form className='mt-2 pt-50' onSubmit={handleSubmit(onSubmit)}>
             <Row>
               <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='firstName'>
+                <Label className="form-label" for="firstname">
                   First Name
                 </Label>
                 <Controller
-                  name='firstName'
+                  id="firstname"
+                  name="firstname"
                   control={control}
                   render={({ field }) => (
-                    <Input id='firstName' placeholder='John' invalid={errors.firstName && true} {...field} />
+                    <Input
+                    onChange={(e)=>{
+                      setUserData({...userData,firstname:e?.target?.value})
+                    }}
+                      value={userData?.firstname}
+                      invalid={errors.firstname && true}
+                    />
                   )}
                 />
-                {errors && errors.firstName && <FormFeedback>Please enter a valid First Name</FormFeedback>}
+                {errors.firstname && (
+                  <FormFeedback>{errors.firstname.message}</FormFeedback>
+                )}
               </Col>
               <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='lastName'>
+                <Label className="form-label" for="lastname">
                   Last Name
                 </Label>
                 <Controller
-                  name='lastName'
+                  id="lastname"
+                  name="lastname"
                   control={control}
                   render={({ field }) => (
-                    <Input id='lastName' placeholder='Doe' invalid={errors.lastName && true} {...field} />
+                    <Input
+                    onChange={(e)=>{
+                      setUserData({...userData,lastname:e?.target?.value})
+                    }}
+                      placeholder="john doe"
+                      value={userData?.lastname}
+                      invalid={errors.lastname && true}
+                    />
                   )}
                 />
-                {errors.lastName && <FormFeedback>Please enter a valid Last Name</FormFeedback>}
+                {errors.lastname && (
+                  <FormFeedback>{errors.lastname.message}</FormFeedback>
+                )}
               </Col>
               <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='emailInput'>
-                  E-mail
+                <Label className="form-label" for="mobileNumber">
+                  Mobile Number:
                 </Label>
-                <Input id='emailInput' type='email' name='email' placeholder='Email' defaultValue={data.email} />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='company'>
-                  Company
-                </Label>
-                <Input defaultValue={data.company} id='company' name='company' placeholder='Company Name' />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='phNumber'>
-                  Phone Number
-                </Label>
-                <Cleave
-                  id='phNumber'
-                  name='phNumber'
-                  className='form-control'
-                  placeholder='1 234 567 8900'
-                  options={{ phone: true, phoneRegionCode: 'US' }}
+                <Controller
+                  control={control}
+                  name="mobileNumber"
+                  render={({ field }) => (
+                    <Input
+                    
+                      type="number"
+                      id="mobileNumber"
+                      onChange={(e)=>{
+                        setUserData({...userData,phone:e?.target?.value})
+                      }}
+                      placeholder="0123456789"
+
+                      value={userData?.phone}
+                      invalid={errors.mobileNumber && true}
+                    />
+                  )}
                 />
+                {errors.mobileNumber && (
+                  <FormFeedback>{errors.mobileNumber.message}</FormFeedback>
+                )}
               </Col>
               <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='address'>
-                  Address
+                <Label className="form-label" for="email">
+                  Email
                 </Label>
-                <Input id='address' name='address' placeholder='12, Business Park' />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='accountState'>
-                  State
-                </Label>
-                <Input id='accountState' name='state' placeholder='California' />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='zipCode'>
-                  Zip Code
-                </Label>
-                <Input id='zipCode' name='zipCode' placeholder='123456' maxLength='6' />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='country'>
-                  Country
-                </Label>
-                <Select
-                  id='country'
-                  isClearable={false}
-                  className='react-select'
-                  classNamePrefix='select'
-                  options={countryOptions}
-                  theme={selectThemeColors}
-                  defaultValue={countryOptions[0]}
+                <Controller
+                  control={control}
+                  id="email"
+                  name="email"
+                  render={({ field }) => (
+                    <Input
+                      type="email"
+                      onChange={(e)=>{
+                        setUserData({...userData,email:e?.target?.value})
+                      }}
+                      placeholder="john.doe@email.com"
+                      value={userData?.email}
+                      invalid={errors.email && true}
+                    />
+                  )}
                 />
+                {errors.email && (
+                  <FormFeedback>{errors.email.message}</FormFeedback>
+                )}
               </Col>
               <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='language'>
-                  Language
+                <Label className="form-label" for="userName">
+                  Username
                 </Label>
-                <Select
-                  id='language'
-                  isClearable={false}
-                  className='react-select'
-                  classNamePrefix='select'
-                  options={languageOptions}
-                  theme={selectThemeColors}
-                  defaultValue={languageOptions[0]}
+                <Controller
+                  id="userName"
+                  name="userName"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                    onChange={(e)=>{
+                      setUserData({...userData,username:e?.target?.value})
+                    }}
+                      placeholder="john doe"
+                      value={userData?.username}
+                      invalid={errors.userName && true}
+                    />
+                  )}
                 />
+                {errors.userName && (
+                  <FormFeedback>{errors.userName.message}</FormFeedback>
+                )}
               </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='timeZone'>
-                  Timezone
-                </Label>
-                <Select
-                  id='timeZone'
-                  isClearable={false}
-                  className='react-select'
-                  classNamePrefix='select'
-                  options={timeZoneOptions}
-                  theme={selectThemeColors}
-                  defaultValue={timeZoneOptions[0]}
-                />
-              </Col>
-              <Col sm='6' className='mb-1'>
-                <Label className='form-label' for='currency'>
-                  Currency
-                </Label>
-                <Select
-                  id='currency'
-                  isClearable={false}
-                  className='react-select'
-                  classNamePrefix='select'
-                  options={currencyOptions}
-                  theme={selectThemeColors}
-                  defaultValue={currencyOptions[0]}
-                />
-              </Col>
+
               <Col className='mt-2' sm='12'>
+                
                 <Button type='submit' className='me-1' color='primary'>
                   Save changes
                 </Button>

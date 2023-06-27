@@ -137,6 +137,11 @@ const StatisticsCards = () => {
         </Col>
         {/* Stats Line Charts */}
       </Row>
+      {/* <Row>
+        <addProduct>
+
+        </addProduct>
+      </Row> */}
     </Fragment>
   )
 }

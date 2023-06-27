@@ -225,56 +225,6 @@ export default [
       },
 
       {
-        id: "mailTemplate",
-        title: "Mail Template",
-        icon: <Mail />,
-        children: [
-          {
-            id: "welcomeTemp",
-            title: "Welcome",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-welcome.html",
-            externalLink: true,
-          },
-          {
-            id: "resetPassTemp",
-            title: "Reset Password",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-reset-password.html",
-            externalLink: true,
-          },
-          {
-            id: "verifyEmailTemp",
-            title: "Verify Email",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-verify-email.html",
-            externalLink: true,
-          },
-          {
-            id: "deactivateAccountTemp",
-            title: "Deactivate Account",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-deactivate-account.html",
-            externalLink: true,
-          },
-          {
-            id: "invoiceMailTemp",
-            title: "Invoice",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-invoice.html",
-            externalLink: true,
-          },
-          {
-            id: "promotionalMailTemp",
-            title: "Promotional",
-            navLink:
-              "https://pixinvent.com/demo/vuexy-mail-template/mail-promotional.html",
-            externalLink: true,
-          },
-        ],
-      },
-
-      {
         id: "miscellaneous",
         title: "Miscellaneous",
         icon: <File />,
