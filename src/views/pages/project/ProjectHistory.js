@@ -133,24 +133,24 @@ function ProjectHistory() {
         );
       },
     },
-    {
-      name: "Update",
+    // {
+    //   name: "Update",
 
-      cell: (row) => {
-        return (
-          <div>
-            <span title="Update Project">
-              <Edit
-                size={15}
-                style={{ marginRight: "5px", cursor: "pointer" }}
-                color="orange"
+    //   cell: (row) => {
+    //     return (
+    //       <div>
+    //         <span title="Update Project">
+    //           <Edit
+    //             size={15}
+    //             style={{ marginRight: "5px", cursor: "pointer" }}
+    //             color="orange"
 
-              />
-            </span>
-          </div>
-        );
-      },
-    },
+    //           />
+    //         </span>
+    //       </div>
+    //     );
+    //   },
+    // },
     {
       name: "Delete",
       selector: (row) => (<div>

@@ -1,60 +1,92 @@
 // ** React Imports
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect } from "react";
 
 // ** Third Party Components
-import Select from 'react-select'
-import Cleave from 'cleave.js/react'
-import { useForm, Controller } from 'react-hook-form'
-import 'cleave.js/dist/addons/cleave-phone.us'
+import Select from "react-select";
+import Cleave from "cleave.js/react";
+import { useForm, Controller } from "react-hook-form";
+import "cleave.js/dist/addons/cleave-phone.us";
 
 // ** Reactstrap Imports
-import { Row, Col, Form, Card, Input, Label, Button, CardBody, CardTitle, CardHeader, FormFeedback } from 'reactstrap'
+import {
+  Row,
+  Col,
+  Form,
+  Card,
+  Input,
+  Label,
+  Button,
+  CardBody,
+  CardTitle,
+  CardHeader,
+  FormFeedback,
+} from "reactstrap";
 
 // ** Utils
-import { selectThemeColors } from '@utils'
+import { selectThemeColors } from "@utils";
 
 // ** Demo Components
-import secureLocalStorage from 'react-secure-storage'
+import secureLocalStorage from "react-secure-storage";
 
-import DeleteAccount from './DeleteAccount'
+import DeleteAccount from "./DeleteAccount";
+import { notification } from "../../../@core/constants/notification";
+import { getUserById, updateUser } from "../../../@core/api/common_api";
 
 const AccountTabs = ({ data }) => {
   // ** Hooks
   const defaultValues = {
-    lastname: '',
-    firstname: ''
-  }
+    lastname: "",
+    firstname: "",
+  };
   const {
     control,
     setError,
     handleSubmit,
-    formState: { errors }
-  } = useForm({ defaultValues })
+    formState: { errors },
+  } = useForm({ defaultValues });
 
   // ** States
-  const [avatar, setAvatar] = useState(data.avatar ? data.avatar : '')
+  const [avatar, setAvatar] = useState(data.avatar ? data.avatar : "");
   const [userData, setUserData] = useState(null);
-
 
   useEffect(() => {
     // const tempdata = UserData
-    // setUserData(tempdata); 
-    const data1 = secureLocalStorage.getItem("userData")
-    setUserData(JSON.parse(data1));
-  }, [])
-  console.log('user details', userData);
+    // setUserData(tempdata);
+    const data1 = JSON.parse(secureLocalStorage.getItem("userData"));
+    delete data1?.password;
+    console.log("data1", data1);
+    setUserData(data1);
+  }, []);
+  console.log("user details", userData);
 
-
-  const onChange = e => {
+  const onChange = (e) => {
     const reader = new FileReader(),
-      files = e.target.files
+      files = e.target.files;
     reader.onload = function () {
-      setAvatar(reader.result)
-    }
-    reader.readAsDataURL(files[0])
-  }
+      setAvatar(reader.result);
+    };
+    reader.readAsDataURL(files[0]);
+  };
 
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
+    console.log("userdata", userData);
+    let response = await updateUser(userData);
+    // console.log("respo", response);
+    notification({
+      type: response?.status == 1 ? "success" : "error",
+      message: response.message,
+    });
+
+    if (response?.status == 1) {
+      console.log("response", response);
+      let userResponse = await getUserById(userData?._id);
+      setUserData(userResponse?.data);
+      secureLocalStorage.setItem(
+        "userData",
+        JSON.stringify(userResponse?.data)
+      );
+    }
+
     // if (Object.values(data).every(field => field.length > 0)) {
     //   return null
     // } else {
@@ -66,21 +98,20 @@ const AccountTabs = ({ data }) => {
     //   }
     // }
     // }
-  }
-
+  };
 
   const handleImgReset = () => {
-    setAvatar(require('@src/assets/images/avatars/avatar-blank.png').default)
-  }
+    setAvatar(require("@src/assets/images/avatars/avatar-blank.png").default);
+  };
 
   return (
     <Fragment>
       <Card>
-        <CardHeader className='border-bottom'>
-          <CardTitle tag='h4'>Update Profile Details</CardTitle>
+        <CardHeader className="border-bottom">
+          <CardTitle tag="h4">Update Profile Details</CardTitle>
         </CardHeader>
-        <CardBody className='py-2 my-25'>
-          <div className='d-flex'>
+        <CardBody className="py-2 my-25">
+          {/* <div className='d-flex'>
             <div className='me-25'>
               <img className='rounded me-50' src={avatar} alt='Generic placeholder image' height='100' width='100' />
             </div>
@@ -96,21 +127,24 @@ const AccountTabs = ({ data }) => {
                 <p className='mb-0'>Allowed JPG, GIF or PNG. Max size of 800kB</p>
               </div>
             </div>
-          </div>
-          <Form className='mt-2 pt-50' onSubmit={handleSubmit(onSubmit)}>
+          </div> */}
+          <Form className="mt-2 pt-50" onSubmit={handleSubmit(onSubmit)}>
             <Row>
-              <Col sm='6' className='mb-1'>
+              <Col sm="6" className="mb-1">
                 <Label className="form-label" for="firstname">
                   First Name
                 </Label>
                 <Controller
-                  id="firstname"
+                  id=" "
                   name="firstname"
                   control={control}
                   render={({ field }) => (
                     <Input
                       onChange={(e) => {
-                        setUserData({ ...userData, firstname: e?.target?.value })
+                        setUserData({
+                          ...userData,
+                          firstname: e?.target?.value,
+                        });
                       }}
                       value={userData?.firstname}
                       invalid={errors.firstname && true}
@@ -121,7 +155,7 @@ const AccountTabs = ({ data }) => {
                   <FormFeedback>{errors.firstname.message}</FormFeedback>
                 )}
               </Col>
-              <Col sm='6' className='mb-1'>
+              <Col sm="6" className="mb-1">
                 <Label className="form-label" for="lastname">
                   Last Name
                 </Label>
@@ -132,7 +166,10 @@ const AccountTabs = ({ data }) => {
                   render={({ field }) => (
                     <Input
                       onChange={(e) => {
-                        setUserData({ ...userData, lastname: e?.target?.value })
+                        setUserData({
+                          ...userData,
+                          lastname: e?.target?.value,
+                        });
                       }}
                       placeholder="john doe"
                       value={userData?.lastname}
@@ -144,7 +181,7 @@ const AccountTabs = ({ data }) => {
                   <FormFeedback>{errors.lastname.message}</FormFeedback>
                 )}
               </Col>
-              <Col sm='6' className='mb-1'>
+              <Col sm="6" className="mb-1">
                 <Label className="form-label" for="mobileNumber">
                   Mobile Number:
                 </Label>
@@ -153,14 +190,12 @@ const AccountTabs = ({ data }) => {
                   name="mobileNumber"
                   render={({ field }) => (
                     <Input
-
                       type="number"
                       id="mobileNumber"
                       onChange={(e) => {
-                        setUserData({ ...userData, phone: e?.target?.value })
+                        setUserData({ ...userData, phone: e?.target?.value });
                       }}
                       placeholder="0123456789"
-
                       value={userData?.phone}
                       invalid={errors.mobileNumber && true}
                     />
@@ -170,7 +205,7 @@ const AccountTabs = ({ data }) => {
                   <FormFeedback>{errors.mobileNumber.message}</FormFeedback>
                 )}
               </Col>
-              <Col sm='6' className='mb-1'>
+              <Col sm="6" className="mb-1">
                 <Label className="form-label" for="email">
                   Email
                 </Label>
@@ -182,7 +217,7 @@ const AccountTabs = ({ data }) => {
                     <Input
                       type="email"
                       onChange={(e) => {
-                        setUserData({ ...userData, email: e?.target?.value })
+                        setUserData({ ...userData, email: e?.target?.value });
                       }}
                       placeholder="john.doe@email.com"
                       value={userData?.email}
@@ -194,7 +229,7 @@ const AccountTabs = ({ data }) => {
                   <FormFeedback>{errors.email.message}</FormFeedback>
                 )}
               </Col>
-              <Col sm='6' className='mb-1'>
+              <Col sm="6" className="mb-1">
                 <Label className="form-label" for="userName">
                   Username
                 </Label>
@@ -205,7 +240,10 @@ const AccountTabs = ({ data }) => {
                   render={({ field }) => (
                     <Input
                       onChange={(e) => {
-                        setUserData({ ...userData, username: e?.target?.value })
+                        setUserData({
+                          ...userData,
+                          username: e?.target?.value,
+                        });
                       }}
                       placeholder="john doe"
                       value={userData?.username}
@@ -218,12 +256,11 @@ const AccountTabs = ({ data }) => {
                 )}
               </Col>
 
-              <Col className='mt-2' sm='12'>
-
-                <Button type='submit' className='me-1' color='primary'>
+              <Col className="mt-2" sm="12">
+                <Button type="submit" className="me-1" color="primary">
                   Save changes
                 </Button>
-                <Button color='secondary' outline>
+                <Button color="secondary" outline>
                   Discard
                 </Button>
               </Col>
@@ -233,7 +270,7 @@ const AccountTabs = ({ data }) => {
       </Card>
       <DeleteAccount />
     </Fragment>
-  )
-}
+  );
+};
 
-export default AccountTabs
+export default AccountTabs;
