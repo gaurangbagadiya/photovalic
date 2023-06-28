@@ -112,7 +112,7 @@ const ForgotPasswordBasic = lazy(() =>
 // const ForgotPass = lazy(() =>
 //   import("../views/pages/authentication/ForgotPassword")
 // );
-const NotAuthorized = lazy(() => import("../views/pages/misc/NotAuthorized"));
+// const NotAuthorized = lazy(() => import("../views/pages/misc/NotAuthorized"));
  //const ResetPasswordCover = lazy(() =>
  //  import("../views/pages/authentication/ResetPasswordCover")
  //);
@@ -207,11 +207,11 @@ const Router = () => {
       //   },
       //   ],
       //  },
-      {
-        path: "/auth/not-auth",
-        element: <BlankLayout />,
-        children: [{ path: "/auth/not-auth", element: <NotAuthorized /> }],
-      },
+      // {
+      //   path: "/auth/not-auth",
+      //   element: <BlankLayout />,
+      //   children: [{ path: "/auth/not-auth", element: <NotAuthorized /> }],
+      // },
       {
         path: "/*",
         element: <BlankLayout />,
@@ -239,11 +239,11 @@ const Router = () => {
         element: <BlankLayout />,
         children: [{ path: "/login", element: <Login /> }],
       },
-      {
-        path: "/auth/not-auth",
-        element: <BlankLayout />,
-        children: [{ path: "/auth/not-auth", element: <NotAuthorized /> }],
-      },
+      // {
+      //   path: "/auth/not-auth",
+      //   element: <BlankLayout />,
+      //   children: [{ path: "/auth/not-auth", element: <NotAuthorized /> }],
+      // },
       {
         path: "/*",
         element: <BlankLayout />,

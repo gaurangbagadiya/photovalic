@@ -18,6 +18,7 @@ import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import { Info } from "react-feather";
 
+
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./MapComponent.css";
@@ -30,7 +31,7 @@ import {
     insertProject,
     updateProduct,
 } from "../../../@core/api/common_api";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { notification } from "../../../@core/constants/notification";
 
 function Project() {
@@ -130,7 +131,7 @@ function Project() {
 
     const getPerdifine = async () => {
         let response = await getAllPredefine();
-        // console.log(response);
+        console.log(response);
         setPreData(response?.data);
     };
 
@@ -219,6 +220,19 @@ function Project() {
                     <Card className="mb-5">
                         <CardHeader>
                             <CardTitle tag="h4">Add Project</CardTitle>
+                            <Link to='/Info'>
+                                <Label ><strong> what should i write in the given fields?</strong>
+                                    <Info
+                                        size={15}
+                                        style={{
+                                            marginRight: "5px",
+                                            cursor: "pointer",
+                                            marginLeft: "20px",
+                                        }}
+                                        color="#28c76f"
+                                    />
+                                </Label>
+                            </Link>
                         </CardHeader>
                         <CardBody>
                             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -290,18 +304,24 @@ function Project() {
                                 </div>
 
                                 <div className="mb-1">
+
                                     <Label className="form-label" for="product_name">
                                         PV Product
-                                        <Info
-                                            size={15}
-                                            style={{
-                                                marginRight: "5px",
-                                                cursor: "pointer",
-                                                marginLeft: "20px",
-                                            }}
-                                            color="#28c76f"
-                                        />
+
                                     </Label>
+                                    <Link to='/Info'>
+                                        <Label>
+                                            <Info
+                                                size={15}
+                                                style={{
+                                                    marginRight: "5px",
+                                                    cursor: "pointer",
+                                                    marginLeft: "20px",
+                                                }}
+                                                color="#28c76f"
+                                            />
+                                        </Label>
+                                    </Link>
                                 </div>
                                 <div className="mb-1">
                                     <Controller
@@ -346,12 +366,18 @@ function Project() {
                                                     setValue("orientation", e?.orientation);
                                                     setValue("inclination", e?.inclination);
                                                     setValue("elevation", e?.elevation);
+                                                    setValue("efficiency", e?.efficiency);
+                                                    setValue("peak_power", e?.peak_power);
+
+                                                   
                                                     setProjectData({
                                                         ...projectData,
                                                         product_name: e?.value,
                                                         orientation: e?.orientation,
                                                         inclination: e?.inclination,
                                                         elevation: e?.elevation,
+                                                        peak_power: e?.peak_power,
+                                                        efficiency: e?.efficiency
                                                     });
                                                 }}
                                                 isClearable={false}
@@ -522,44 +548,46 @@ function Project() {
                                         </div>
                                     </Col>
                                 </Row>
+                                {/* global irradiationa and avg temprature  */}
                                 <Row>
+                            
                                     <Col md="2">
                                         <div className="mb-1">
-                                            <Label className="form-label" for="global_irradiation">
-                                                Global Irradiance :
+                                            <Label className="form-label" for="efficiency">
+                                            Efficiencey :
                                             </Label>
                                         </div>
                                     </Col>
                                     <Col md="4">
                                         <div className="mb-1">
                                             <Controller
-                                                id="global_irradiation"
-                                                name="global_irradiation"
+                                                id="efficiency"
+                                                name="efficiency"
                                                 defaultValue=""
                                                 control={control}
                                                 render={({ field }) => (
                                                     <Input
                                                         {...field}
-                                                        value={projectData?.global_irradiation}
+                                                        value={projectData?.efficiency}
                                                         onChange={(e) => {
                                                             setProjectData({
                                                                 ...projectData,
-                                                                global_irradiation: e.target?.value,
+                                                                efficiency: e.target?.value,
                                                             });
                                                         }}
                                                         placeholder="-kWh/m²"
-                                                        invalid={errors.global_irradiation && true}
+                                                        invalid={errors.efficiency && true}
                                                     />
                                                 )}
                                             />
-                                            {errors.global_irradiation && (
+                                            {errors.efficiency && (
                                                 <FormFeedback>
-                                                    {errors.global_irradiation.message}
+                                                    {errors.efficiency.message}
                                                 </FormFeedback>
                                             )}
                                         </div>
                                     </Col>
-                                    <Col md="2">
+                                    {/* <Col md="2">
                                         <div className="mb-1">
                                             <Label className="form-label" for="avg_Tempraure ">
                                                 Average Temperature [°]:
@@ -594,7 +622,7 @@ function Project() {
                                                 </FormFeedback>
                                             )}
                                         </div>
-                                    </Col>
+                                    </Col> */}
                                 </Row>
 
                                 <Row>
@@ -603,15 +631,19 @@ function Project() {
                                             <Label className="form-label" for="peak_power">
                                                 Peak Power
                                             </Label>
-                                            <Info
-                                                size={15}
-                                                style={{
-                                                    marginRight: "5px",
-                                                    cursor: "pointer",
-                                                    marginLeft: "20px",
-                                                }}
-                                                color="#28c76f"
-                                            />
+                                            <Link to='/Info'>
+                                                <Label>
+                                                    <Info
+                                                        size={15}
+                                                        style={{
+                                                            marginRight: "5px",
+                                                            cursor: "pointer",
+                                                            marginLeft: "20px",
+                                                        }}
+                                                        color="#28c76f"
+                                                    />
+                                                </Label>
+                                            </Link>
                                         </div>
                                     </Col>
                                     <Col md="4">
@@ -695,7 +727,7 @@ function Project() {
                                     <Col md="2">
                                         <div className="mb-1">
                                             <Label className="form-label" for="inclination">
-                                                Inclination Slop [°] :
+                                                Inclination Tilt/Slop [°] :
                                             </Label>
                                         </div>
                                     </Col>

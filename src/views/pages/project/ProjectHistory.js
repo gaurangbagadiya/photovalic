@@ -107,9 +107,7 @@ function ProjectHistory() {
                 size={15}
                 style={{ marginRight: "5px", cursor: "pointer" }}
                 color="#28c76f"
-                onClick={() => {
-                  handleGenerateReport(row?._id)
-                }}
+                onClick={() => navigate("/report", { state: { project_id: row?._id } })}
               />
             </span>
           </div>
@@ -146,6 +144,7 @@ function ProjectHistory() {
                 size={15}
                 style={{ marginRight: "5px", cursor: "pointer" }}
                 color="orange"
+
               />
             </span>
           </div>

@@ -151,7 +151,7 @@ const data = {
   }
 }
 
-mock.onGet('/blog/list/data').reply(() => [200, data.blogList])
-mock.onGet('/blog/list/data/sidebar').reply(() => [200, data.blogSidebar])
-mock.onGet('/blog/list/data/detail').reply(() => [200, data.blogDetail])
-mock.onGet('/blog/list/data/edit').reply(() => [200, data.blogEdit])
+// mock.onGet('/blog/list/data').reply(() => [200, data.blogList])
+// mock.onGet('/blog/list/data/sidebar').reply(() => [200, data.blogSidebar])
+// mock.onGet('/blog/list/data/detail').reply(() => [200, data.blogDetail])
+// mock.onGet('/blog/list/data/edit').reply(() => [200, data.blogEdit])

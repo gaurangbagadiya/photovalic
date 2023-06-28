@@ -199,15 +199,15 @@ export const searchArr = [
       //   icon: "Settings",
       //   link: "/pages/account-settings",
       // },
-      {
-        id: 27,
-        target: "profile",
-        isBookmarked: false,
-        title: "Profile Page",
-        icon: "Users",
-        link: "/pages/profile",
-        collapsed: true,
-      },
+      // {
+      //   id: 27,
+      //   target: "profile",
+      //   isBookmarked: false,
+      //   title: "Profile Page",
+      //   icon: "Users",
+      //   link: "/pages/profile",
+      //   collapsed: true,
+      // },
       // {
       //   id: 28,
       //   target: "faq",
@@ -234,14 +234,14 @@ export const searchArr = [
       //   link: "/pages/pricing",
       // },
 
-      {
-        id: 31,
-        target: "blogList",
-        isBookmarked: false,
-        title: "Blog List",
-        icon: "List",
-        link: "/pages/blog/list",
-      },
+      // {
+      //   id: 31,
+      //   target: "blogList",
+      //   isBookmarked: false,
+      //   title: "Blog List",
+      //   icon: "List",
+      //   link: "/pages/blog/list",
+      // },
       {
         id: 32,
         target: "blogDetail",
@@ -250,14 +250,14 @@ export const searchArr = [
         icon: "FileText",
         link: "/pages/blog/detail",
       },
-      {
-        id: 33,
-        target: "blogEdit",
-        isBookmarked: false,
-        title: "Blog Edit",
-        icon: "Edit",
-        link: "/pages/blog/edit",
-      },
+      // {
+      //   id: 33,
+      //   target: "blogEdit",
+      //   isBookmarked: false,
+      //   title: "Blog Edit",
+      //   icon: "Edit",
+      //   link: "/pages/blog/edit",
+      // },
 
       {
         id: 34,
@@ -916,14 +916,14 @@ export const searchArr = [
         icon: "CreditCard",
         link: "/pages/license",
       },
-      {
-        id: 121,
-        target: "apiKey",
-        isBookmarked: false,
-        title: "API Key",
-        icon: "Key",
-        link: "/pages/api-key",
-      },
+      // {
+      //   id: 121,
+      //   target: "apiKey",
+      //   isBookmarked: false,
+      //   title: "API Key",
+      //   icon: "Key",
+      //   link: "/pages/api-key",
+      // },
       {
         id: 122,
         target: "accordion",

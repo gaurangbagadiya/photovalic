@@ -8,6 +8,8 @@ const ProjectHistory = lazy(() => import('../../views/pages/project/ProjectHisto
 const ProjectView = lazy(() => import('../../views/pages/project/ProjectView'))
 const MapView = lazy(() => import('../../views/pages/project/MapView'))
 const Report = lazy(() => import('../../views/pages/project/Report'))
+const Info = lazy(() => import('../../views/pages/project/Info.js'))
+
 
 const ClientRoutes = [
   {
@@ -22,6 +24,10 @@ const ClientRoutes = [
   {
     element: <ProjectView />,
     path: '/ProjectView',
+  },
+  {
+    element: <Info />,
+    path: '/Info',
   },
   {
     element: <MapView />,

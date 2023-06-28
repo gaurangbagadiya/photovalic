@@ -84,7 +84,7 @@ const PreviewCard = ({ data }) => {
                   <td>#</td>
                 </tr>
                 <tr>
-                  <td className='pe-1'>Global Irradiation</td>
+                  <td className='pe-1'>Efficiencey</td>
                   <td>#</td>
                 </tr>
                 <tr>
