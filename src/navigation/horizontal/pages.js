@@ -154,13 +154,13 @@ export default [
       //   icon: <Settings />,
       //   navLink: "/pages/account-settings",
       // },
-      {
-        id: "profile",
-        title: "Profile",
-        icon: <User />,
-        navLink: "/pages/profile",
-        collapsed: true,
-      },
+      // {
+      //   id: "profile",
+      //   title: "Profile",
+      //   icon: <User />,
+      //   navLink: "/pages/profile",
+      //   collapsed: true,
+      // },
       // {
       //   id: "faq",
       //   title: "FAQ",
@@ -191,36 +191,36 @@ export default [
       //   permissions: ["admin", "editor"],
       //   navLink: "/pages/license",
       // },
-      {
-        id: "api-key",
-        title: "API Key",
-        icon: <Key />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/api-key",
-      },
+      // {
+      //   id: "api-key",
+      //   title: "API Key",
+      //   icon: <Key />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/api-key",
+      // },
       {
         id: "blog",
         title: "Blog",
         icon: <Clipboard />,
         children: [
-          {
-            id: "blogList",
-            title: "List",
-            icon: <Circle />,
-            navLink: "/pages/blog/list",
-          },
+          // {
+          //   id: "blogList",
+          //   title: "List",
+          //   icon: <Circle />,
+          //   navLink: "/pages/blog/list",
+          // },
           {
             id: "blogDetail",
             title: "Detail",
             icon: <Circle />,
             navLink: "/pages/blog/detail",
           },
-          {
-            id: "blogEdit",
-            title: "Edit",
-            icon: <Circle />,
-            navLink: "/pages/blog/edit",
-          },
+          // {
+          //   id: "blogEdit",
+          //   title: "Edit",
+          //   icon: <Circle />,
+          //   navLink: "/pages/blog/edit",
+          // },
         ],
       },
 

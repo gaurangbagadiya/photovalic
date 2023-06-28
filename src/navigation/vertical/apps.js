@@ -1,5 +1,5 @@
 // ** Icons Import
-import { Mail, MessageSquare, CheckSquare, Calendar, FileText, Circle, ShoppingCart, User, Shield, FilePlus, Eye,Map} from 'react-feather'
+import {  FilePlus, Eye,Map} from 'react-feather'
 
 export default [
   {
@@ -22,13 +22,4 @@ export default [
     icon: <Map size={20} />,
     navLink: '/mapview'
   },
-
-  {
-    id: 'Report',
-    title: 'Report',
-    icon: <User size={20} />,
-    navLink: '/report'
-  },
-
- 
 ]

@@ -58,13 +58,13 @@ const AccountTabs = ({ data }) => {
     // if (Object.values(data).every(field => field.length > 0)) {
     //   return null
     // } else {
-      // for (const key in data) {
-      //   if (data[key].length === 0) {
-      //     setError(key, {
-      //       type: 'manual'
-      //     })
-      //   }
-      // }
+    // for (const key in data) {
+    //   if (data[key].length === 0) {
+    //     setError(key, {
+    //       type: 'manual'
+    //     })
+    //   }
+    // }
     // }
   }
 
@@ -109,9 +109,9 @@ const AccountTabs = ({ data }) => {
                   control={control}
                   render={({ field }) => (
                     <Input
-                    onChange={(e)=>{
-                      setUserData({...userData,firstname:e?.target?.value})
-                    }}
+                      onChange={(e) => {
+                        setUserData({ ...userData, firstname: e?.target?.value })
+                      }}
                       value={userData?.firstname}
                       invalid={errors.firstname && true}
                     />
@@ -131,9 +131,9 @@ const AccountTabs = ({ data }) => {
                   control={control}
                   render={({ field }) => (
                     <Input
-                    onChange={(e)=>{
-                      setUserData({...userData,lastname:e?.target?.value})
-                    }}
+                      onChange={(e) => {
+                        setUserData({ ...userData, lastname: e?.target?.value })
+                      }}
                       placeholder="john doe"
                       value={userData?.lastname}
                       invalid={errors.lastname && true}
@@ -153,11 +153,11 @@ const AccountTabs = ({ data }) => {
                   name="mobileNumber"
                   render={({ field }) => (
                     <Input
-                    
+
                       type="number"
                       id="mobileNumber"
-                      onChange={(e)=>{
-                        setUserData({...userData,phone:e?.target?.value})
+                      onChange={(e) => {
+                        setUserData({ ...userData, phone: e?.target?.value })
                       }}
                       placeholder="0123456789"
 
@@ -181,8 +181,8 @@ const AccountTabs = ({ data }) => {
                   render={({ field }) => (
                     <Input
                       type="email"
-                      onChange={(e)=>{
-                        setUserData({...userData,email:e?.target?.value})
+                      onChange={(e) => {
+                        setUserData({ ...userData, email: e?.target?.value })
                       }}
                       placeholder="john.doe@email.com"
                       value={userData?.email}
@@ -204,9 +204,9 @@ const AccountTabs = ({ data }) => {
                   control={control}
                   render={({ field }) => (
                     <Input
-                    onChange={(e)=>{
-                      setUserData({...userData,username:e?.target?.value})
-                    }}
+                      onChange={(e) => {
+                        setUserData({ ...userData, username: e?.target?.value })
+                      }}
                       placeholder="john doe"
                       value={userData?.username}
                       invalid={errors.userName && true}
@@ -219,7 +219,7 @@ const AccountTabs = ({ data }) => {
               </Col>
 
               <Col className='mt-2' sm='12'>
-                
+
                 <Button type='submit' className='me-1' color='primary'>
                   Save changes
                 </Button>

@@ -58,7 +58,7 @@ function MapView() {
           <h5>${project?.project?.project_name}</h5>
           <h4>${element.product_name}</h4>
           <h6>Location : ${element.city},${element.state}</h6>
-          <h6>Global Irradiance : ${element.global_irradiation} kwh/m²</h6>
+          <h6>Efficiency : ${element.efficiency} </h6>
           <h6>Peak Power : ${element.peak_power} kwh/m²</h6>
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>

@@ -14,14 +14,14 @@ export default [
       //   permissions: ["admin", "editor"],
       //   navLink: "/pages/account-settings",
       // },
-      {
-        id: "profile",
-        title: "Profile",
-        icon: <Circle size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/profile",
-        collapsed: true,
-      },
+      // {
+      //   id: "profile",
+      //   title: "Profile",
+      //   icon: <Circle size={12} />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/profile",
+      //   collapsed: true,
+      // },
       // {
       //   id: "faq",
       //   title: "FAQ",
@@ -54,36 +54,36 @@ export default [
       //   permissions: ["admin", "editor"],
       //   navLink: "/pages/license",
       // },
-      {
-        id: "api-key",
-        title: "API Key",
-        icon: <Circle size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/pages/api-key",
-      },
+      // {
+      //   id: "api-key",
+      //   title: "API Key",
+      //   icon: <Circle size={12} />,
+      //   permissions: ["admin", "editor"],
+      //   navLink: "/pages/api-key",
+      // },
       {
         id: "blog",
         title: "Blog",
         icon: <Circle size={12} />,
         children: [
-          {
-            id: "blogList",
-            title: "List",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/blog/list",
-          },
+          // {
+          //   id: "blogList",
+          //   title: "List",
+          //   permissions: ["admin", "editor"],
+          //   navLink: "/pages/blog/list",
+          // },
           {
             id: "blogDetail",
             title: "Detail",
             permissions: ["admin", "editor"],
             navLink: "/pages/blog/detail",
           },
-          {
-            id: "blogEdit",
-            title: "Edit",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/blog/edit",
-          },
+          // {
+          //   id: "blogEdit",
+          //   title: "Edit",
+          //   permissions: ["admin", "editor"],
+          //   navLink: "/pages/blog/edit",
+          // },
         ],
       },
     

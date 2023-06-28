@@ -101,8 +101,8 @@ function ProjectView() {
     const markerSize = [30, 30]; // Customize the size of the marker icon
 
     let DefaultIcon = L.icon({
-        iconUrl: Marker,
-        iconSize: markerSize,
+      iconUrl: Marker,
+      iconSize: markerSize,
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -116,7 +116,7 @@ function ProjectView() {
       closeButton: false,
     };
     // console.log("resppppppppppppppppppp", productData);
-    
+
     productData?.forEach((element) => {
       // console.log(element.longitude)
       const marker = new L.Marker([element.latitude, element.longitude]).addTo(map);
@@ -125,7 +125,7 @@ function ProjectView() {
         marker.bindPopup(`<divs>
           <h3>${element.product_name}</h3>
           <h6>Location : ${element.city},${element.state}</h6>
-          <h6>Global Irradiance : ${element.global_irradiation} kwh/m²</h6>
+          <h6>Efficiency : ${element.efficiency} </h6>
           <h6>Peak Power : ${element.peak_power} kwh/m²</h6>
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
@@ -220,7 +220,7 @@ function ProjectView() {
             <CardHeader>
               <CardTitle tag="h4">Project Name : {projectData?.project_name}</CardTitle>
               <div className="d-flex mt-1">
-                <Button className="me-1" color="success" type="submit">
+                <Button className="me-1" color="success" type="submit" >
                   Generate Report
                 </Button>
                 <Button className="me-1" color="primary" type="submit">
@@ -423,30 +423,30 @@ function ProjectView() {
                     <Row>
                       <Col md="2">
                         <div className="mb-1">
-                          <Label className="form-label" for="globalIrradiance">
-                            Global Irradiance :
+                          <Label className="form-label" for="efficiency">
+                            Efficiency  :
                           </Label>
                         </div>
                       </Col>
                       <Col md="4">
                         <div className="mb-1">
                           <Controller
-                            id="globalIrradiance"
-                            name="globalIrradiance"
+                            id="efficiency"
+                            name="efficiency"
                             defaultValue=""
                             control={control}
                             render={({ field }) => (
                               <Input
                                 {...field}
                                 placeholder="-kWh/m²"
-                                value={product?.global_irradiation}
-                                invalid={errors.globalIrradiance && true}
+                                value={product?.efficiency}
+                                invalid={errors.efficiency && true}
                               />
                             )}
                           />
-                          {errors.globalIrradiance && (
+                          {errors.efficiency && (
                             <FormFeedback>
-                              {errors.globalIrradiance.message}
+                              {errors.efficiency.message}
                             </FormFeedback>
                           )}
                         </div>
