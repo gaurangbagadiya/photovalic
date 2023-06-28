@@ -4,26 +4,27 @@ export const ApiRoutes = {
 
   LOGIN: "users/login",
   REGISTER: "users/register",
-  FORGOTPASSWORD:"users/forgot-password",
+  FORGOTPASSWORD: "users/forgot-password",
   CHECKEMAIL: "check-email",
   CHECKMOBILE: "check-mobile",
 
   GETATTRIBUTEBYID: "get-attributebyid",
 
   GETALLPROJECTS: "/projects/getproject",
-  GETALLPROJECTSWITHPRODUCTS:"/projects/getprojectwithproducts",
+  GETALLPROJECTSWITHPRODUCTS: "/projects/getprojectwithproducts",
   GETPROJECTBYID: "/projects/projectbyid",
   INSERTPROJECT: "/projects/add",
-  DELETEPROJECTBYID : "/projects/Alldelete",
+  DELETEPROJECTBYID: "/projects/Alldelete",
+  UPDATEPROJECT: "/projects/update",
 
   INSERTPRODUCT: "/Product/add",
-  DELETEPRODUCTBYID:"Product/delete",
-  
+  DELETEPRODUCTBYID: "Product/delete",
+
   UPDATEPRODUCT: "/Product/update",
   GETALLPRODUCTSBYID: "/Product/allproducts",
 
-
   GETALLPREDEFINE: "/Predefine/getAllData",
-  UPDATEUSERBYID: "/users/update"
-  
+  UPDATEUSERBYID: "/users/update",
+  DELETEUSER: "/users/delete",
+  GETUSERDATA:"/users/getUser"
 };

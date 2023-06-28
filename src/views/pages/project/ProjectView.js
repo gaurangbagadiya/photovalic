@@ -37,7 +37,6 @@ import {
 } from "../../../@core/api/common_api";
 import { notification } from "../../../@core/constants/notification";
 
-
 function ProjectView() {
   const defaultValues = {
     latitude: "",
@@ -92,7 +91,6 @@ function ProjectView() {
     // return () => setBlock(false)
   }, []);
 
-
   useEffect(() => {
     const mapOptions = {
       center: [50.8282, 12.9209],
@@ -108,7 +106,9 @@ function ProjectView() {
     L.Marker.prototype.options.icon = DefaultIcon;
     let map = L.map(mapRef.current, mapOptions);
 
-    let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    let layer = new L.TileLayer(
+      "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    );
 
     map.addLayer(layer);
     // console.log("eeeee")
@@ -119,10 +119,14 @@ function ProjectView() {
 
     productData?.forEach((element) => {
       // console.log(element.longitude)
-      const marker = new L.Marker([element.latitude, element.longitude]).addTo(map);
+      const marker = new L.Marker([element.latitude, element.longitude]).addTo(
+        map
+      );
 
-      marker.on('mouseover', () => {
-        marker.bindPopup(`<divs>
+      marker.on("mouseover", () => {
+        marker
+          .bindPopup(
+            `<divs>
           <h3>${element.product_name}</h3>
           <h6>Location : ${element.city},${element.state}</h6>
           <h6>Efficiency : ${element.efficiency} </h6>
@@ -130,14 +134,17 @@ function ProjectView() {
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
           <h6>Elevation : ${element.elevation} m²</h6>
-        </divs>`, popupOptions).openPopup();
+        </divs>`,
+            popupOptions
+          )
+          .openPopup();
       });
 
-      marker.on('mouseout', () => {
+      marker.on("mouseout", () => {
         marker.closePopup();
       });
 
-      marker.on('click', () => {
+      marker.on("click", () => {
         window.open(element.url);
       });
     });
@@ -161,7 +168,6 @@ function ProjectView() {
   const onSubmit = (data) => {
     // console.log("dataaa", data);
     if (Object.values(data).every((field) => field.length > 0)) {
-
     }
   };
 
@@ -184,7 +190,7 @@ function ProjectView() {
 
   const handleDeleteProject = async (id) => {
     // console.log("id", id);
-    let response = await deleteProject(id)
+    let response = await deleteProject(id);
     // console.log("response", response);
     notification({
       type: response?.status == 1 ? "success" : "error",
@@ -192,13 +198,13 @@ function ProjectView() {
     });
 
     if (response?.status == 1) {
-      navigate("/projecthistory")
+      navigate("/projecthistory");
     }
-  }
+  };
 
   const handleDeleteProduct = async (id) => {
     // console.log("id", id);
-    let response = await deleteProduct(id)
+    let response = await deleteProduct(id);
     // console.log("response", response);
     notification({
       type: response?.status == 1 ? "success" : "error",
@@ -208,7 +214,7 @@ function ProjectView() {
     if (response?.status == 1) {
       getProductsDataById(state?.project_id);
     }
-  }
+  };
 
   return (
     // <UILoader blocking={block}>
@@ -218,21 +224,50 @@ function ProjectView() {
         <Col xs={12}>
           <Card>
             <CardHeader>
-              <CardTitle tag="h4">Project Name : {projectData?.project_name}</CardTitle>
+              <CardTitle tag="h4">
+                Project Name : {projectData?.project_name}
+              </CardTitle>
               <div className="d-flex mt-1">
-                <Button className="me-1" color="success" type="submit" >
+                <Button
+                  className="me-1"
+                  color="success"
+                  onClick={() =>
+                    navigate("/report", {
+                      state: { project_id: state?.project_id },
+                    })
+                  }
+                >
                   Generate Report
                 </Button>
-                <Button className="me-1" color="primary" type="submit">
+                <Button
+                  className="me-1"
+                  color="primary"
+                  type="submit"
+                  onClick={() =>
+                    navigate("/project", {
+                      state: {
+                        ...projectData,
+                        project_id: state?.project_id,
+                        type: 2,
+                      },
+                    })
+                  }
+                >
                   Update
                 </Button>
-                <Button color="danger" type="submit" onClick={() => handleDeleteProject(projectData?._id)}>
+                <Button
+                  color="danger"
+                  type="submit"
+                  onClick={() => handleDeleteProject(projectData?._id)}
+                >
                   Delete
                 </Button>
               </div>
             </CardHeader>
             <CardBody>
-              <CardText>Description: {projectData?.project_description}</CardText>
+              <CardText>
+                Description: {projectData?.project_description}
+              </CardText>
             </CardBody>
           </Card>
 
@@ -241,19 +276,22 @@ function ProjectView() {
             <CardHeader>
               <CardTitle tag="h4">Location</CardTitle>
             </CardHeader>
-            <CardBody> <div className="mb-1">
+            <CardBody>
               {" "}
-              <div
-                id="map"
-                ref={mapRef}
-                style={{
-                  width: "flex",
-                  height: "600px",
-                  borderRadius: "5px",
-                  zIndex: "0",
-                }}
-              ></div>
-            </div></CardBody>
+              <div className="mb-1">
+                {" "}
+                <div
+                  id="map"
+                  ref={mapRef}
+                  style={{
+                    width: "flex",
+                    height: "600px",
+                    borderRadius: "5px",
+                    zIndex: "0",
+                  }}
+                ></div>
+              </div>
+            </CardBody>
           </Card>
 
           {/* data from backend when user create their first product   ... */}
@@ -282,7 +320,11 @@ function ProjectView() {
                     >
                       Update Product
                     </Button>
-                    <Button color="danger" type="reset" onClick={() => handleDeleteProduct(product?._id)}>
+                    <Button
+                      color="danger"
+                      type="reset"
+                      onClick={() => handleDeleteProduct(product?._id)}
+                    >
                       Delete
                     </Button>
                   </div>
@@ -420,11 +462,11 @@ function ProjectView() {
                         </div>
                       </Col>
                     </Row>
-                    <Row>
+                    <Row className="d-flex justify-content-start">
                       <Col md="2">
                         <div className="mb-1">
                           <Label className="form-label" for="efficiency">
-                            Efficiency  :
+                            Efficiency :
                           </Label>
                         </div>
                       </Col>
@@ -451,7 +493,7 @@ function ProjectView() {
                           )}
                         </div>
                       </Col>
-                      <Col md="2">
+                      {/* <Col md="2">
                         <div className="mb-1">
                           <Label
                             className="form-label"
@@ -484,7 +526,7 @@ function ProjectView() {
                             </FormFeedback>
                           )}
                         </div>
-                      </Col>
+                      </Col> */}
                     </Row>
                     <Row>
                       <Col md="2">

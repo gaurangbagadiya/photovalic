@@ -13,7 +13,7 @@ const Error = lazy(() => import('../../views/pages/misc/Error'))
 // const ComingSoon = lazy(() => import('../../views/pages/misc/ComingSoon'))
 // const ModalExamples = lazy(() => import('../../views/pages/modal-examples'))
 // const Maintenance = lazy(() => import('../../views/pages/misc/Maintenance'))
-// const AccountSettings = lazy(() => import('../../views/pages/account-settings'))
+const AccountSettings = lazy(() => import('../../views/pages/account-settings'))
 // const NotAuthorized = lazy(() => import('../../views/pages/misc/NotAuthorized'))
 // const KnowledgeBase = lazy(() => import('../../views/pages/knowledge-base/KnowledgeBase'))
 // const KnowledgeBaseCategory = lazy(() => import('../../views/pages/knowledge-base/KnowledgeBaseCategory'))
@@ -40,10 +40,10 @@ const PagesRoutes = [
   //   path: '/pages/knowledge-base/:category/:question',
   //   element: <KBCategoryQuestion />
   // },
-  // {
-  //   path: '/pages/account-settings',
-  //   element: <AccountSettings />
-  // },
+  {
+    path: '/pages/account-settings',
+    element: <AccountSettings />
+  },
   // {
   //   path: '/pages/license',
   //   element: <License />

@@ -29,6 +29,7 @@ import {
 
 // ** Default Avatar Image
 import defaultAvatar from "@src/assets/images/portrait/small/avatar-s-11.jpg";
+import userImage from "@src/assets/images/portrait/small/user.png";
 
 const UserDropdown = () => {
   // ** Store Vars
@@ -60,7 +61,7 @@ const UserDropdown = () => {
             {(userData && userData["username"]) || "John Doe"}
           </span>
         </div>
-        <Avatar img={userAvatar} imgHeight="40" imgWidth="40" status="online" />
+        <Avatar img={userImage} imgHeight="40" imgWidth="40" status="online" />
       </DropdownToggle>
       <DropdownMenu end>
         <DropdownItem divider />
