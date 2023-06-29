@@ -6,7 +6,7 @@ import { notification } from "../constants/notification";
 export const forgotPassword = async (formdata) => {
   try {
     const res = await Request.post(ApiRoutes.FORGOTPASSWORD, formdata);
-    return res?.data;
+    return res;
   } catch (error) {
     throw error;
   }
@@ -185,6 +185,27 @@ export const getUserById = async (id) => {
   try {
     const res = await Request.get(ApiRoutes.GETUSERDATA + "/" + id);
     console.log("res");
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const sendReportById = async (id) => {
+  try {
+    const res = await Request.get(ApiRoutes.SENDREPORTBYID + "/" + id);
+    console.log("res");
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
+export const resetPassword = async (data) => {
+  try {
+    const res = await Request.post(ApiRoutes.RESETPASSWORD, data);
     return res;
   } catch (error) {
     throw error;

@@ -109,13 +109,17 @@ const RegisterMultiSteps = lazy(() =>
 const ForgotPasswordBasic = lazy(() =>
   import("../views/pages/authentication/ForgotPasswordBasic")
 );
+
+const ResetPasswordBasic = lazy(() =>
+  import("../views/pages/authentication/ResetPasswordBasic")
+);
 // const ForgotPass = lazy(() =>
 //   import("../views/pages/authentication/ForgotPassword")
 // );
 // const NotAuthorized = lazy(() => import("../views/pages/misc/NotAuthorized"));
- //const ResetPasswordCover = lazy(() =>
- //  import("../views/pages/authentication/ResetPasswordCover")
- //);
+//const ResetPasswordCover = lazy(() =>
+//  import("../views/pages/authentication/ResetPasswordCover")
+//);
 // const Inquiry = lazy(() => import("../../views/pages/Lead/inquiry"));
 // const Inquiry = lazy(() => import("../views/pages/Lead/inquiry"));
 
@@ -197,16 +201,23 @@ const Router = () => {
           { path: "/forgot-password", element: <ForgotPasswordBasic /> },
         ],
       },
-      //  {
-      //   path: "/reset-password-cover/:code",
-      //   element: <BlankLayout />,
-      //  children: [
-      //    {
-      //      path: "/reset-password-cover/:code",
-      //      element: <ResetPasswordCover />,
+      // {
+      //   path: "/reset-password-basic",
+      //   element: <ResetPasswordBasic />,
+      //   meta: {
+      //     layout: "blank",
       //   },
-      //   ],
-      //  },
+      // },
+      {
+        path: "/reset-password/:token",
+        element: <BlankLayout />,
+        children: [
+          {
+            path: "/reset-password/:token",
+            element: <ResetPasswordBasic />,
+          },
+        ],
+      },
       // {
       //   path: "/auth/not-auth",
       //   element: <BlankLayout />,

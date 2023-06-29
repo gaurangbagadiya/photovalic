@@ -393,6 +393,8 @@ function Project() {
                               setValue("elevation", e?.elevation);
                               setValue("efficiency", e?.efficiency);
                               setValue("peak_power", e?.peak_power);
+                              // setValue("watt", e?.watt);
+
 
                               setProjectData({
                                 ...projectData,
@@ -402,6 +404,8 @@ function Project() {
                                 elevation: e?.elevation,
                                 peak_power: e?.peak_power,
                                 efficiency: e?.efficiency,
+                                // watt: e?.watt,
+
                               });
                             }}
                             isClearable={false}
@@ -549,7 +553,7 @@ function Project() {
                             State :
                           </Label>
                         </div>
-                      </Col>
+                      </Col>    
                       <Col md="4">
                         <div className="mb-1">
                           <Controller
@@ -616,6 +620,42 @@ function Project() {
                           )}
                         </div>
                       </Col>
+                      {/* <Col md="2">
+                        <div className="mb-1">
+                          <Label className="form-label" for="watt">
+                          Watt :
+                          </Label>
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div className="mb-1">
+                          <Controller
+                            id="watt"
+                            name="watt"
+                            defaultValue=""
+                            control={control}
+                            render={({ field }) => (
+                              <Input
+                                {...field}
+                                value={projectData?.watt}
+                                onChange={(e) => {
+                                  setProjectData({
+                                    ...projectData,
+                                    watt: e.target?.value,
+                                  });
+                                }}
+                                placeholder="-kWh/m²"
+                                invalid={errors.watt && true}
+                              />
+                            )}
+                          />
+                          {errors.watt && (
+                            <FormFeedback>
+                              {errors.watt.message}
+                            </FormFeedback>
+                          )}
+                        </div>
+                      </Col> */}
                       {/* <Col md="2">
                                         <div className="mb-1">
                                             <Label className="form-label" for="avg_Tempraure ">

@@ -6,7 +6,7 @@ import Breadcrumbs from '@components/breadcrumbs';
 
 import '@styles/react/apps/app-users.scss';
 
-import { deleteProject, getAllProjects } from '../../../@core/api/common_api'
+import { deleteProject, getAllProjects, sendReportById } from '../../../@core/api/common_api'
 import DataTable from 'react-data-table-component';
 import moment from 'moment/moment';
 import { Download, Edit, Eye, Trash2 } from 'react-feather';
@@ -44,6 +44,16 @@ function ProjectHistory() {
       await getProjects()
     }
   }
+
+  const sendReport = async (id) => {
+    let response = await sendReportById(id);
+    console.log("response", response);
+    notification({
+      type: response?.status == 1 ? "success" : "error",
+      message: response.message,
+    });
+    // setProjectData(response?.data[0]);
+  };
 
   useEffect(() => {
     // Filter projects based on active/inactive status and search term
@@ -107,7 +117,12 @@ function ProjectHistory() {
                 size={15}
                 style={{ marginRight: "5px", cursor: "pointer" }}
                 color="#28c76f"
-                onClick={() => navigate("/report", { state: { project_id: row?._id } })}
+                onClick={
+                  () => sendReport(state?.project_id)
+                  // navigate("/report", {
+                  //   state: { project_id: state?.project_id },
+                  // })
+                }
               />
             </span>
           </div>
