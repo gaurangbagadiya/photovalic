@@ -1,5 +1,5 @@
 // ** React Imports
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // ** Icons Imports
 import { ChevronLeft } from "react-feather";
@@ -26,7 +26,10 @@ import {
 import "@styles/react/pages/page-authentication.scss";
 import { isUserLoggedIn } from "../../../utility/Utils";
 import { forgotPassword } from "../../../@core/api/common_api";
+import { notification } from "../../../@core/constants/notification";
 const ForgotPasswordBasic = () => {
+  const navigate = useNavigate();
+
   const defaultValues = { email: "" };
   const validationSchema = yup.object().shape({
     email: yup.string().email().required("Email is required field"),
@@ -46,7 +49,18 @@ const ForgotPasswordBasic = () => {
       console.log(data);
       let response = await forgotPassword(data);
       console.log("response",response);
-
+      if (response?.status === 1) {
+        notification({
+            type: "success",
+            message: response.message,
+        });
+        navigate("/login")
+    } else {
+        notification({
+            type: "error",
+            message: response.message,
+        });
+    }
     }
   };
   if (!isUserLoggedIn()) {

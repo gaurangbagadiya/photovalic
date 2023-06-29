@@ -15,9 +15,6 @@ import { getAllProjects, getAllProjectsWithProducts } from '../../../@core/api/c
 import { useNavigate } from 'react-router-dom'
 
 function MapView() {
-
-
-
   const mapRef = useRef(null);
   const navigate = useNavigate();
   const [projects, setProjects] = useState([])
@@ -46,7 +43,7 @@ function MapView() {
     const popupOptions = {
       closeButton: false,
     };
-    // console.log("resppppppppppppppppppp", projects);
+    console.log("resppppppppppppppppppp", projects);
 
     projects?.forEach((project) => {
       project?.products?.map((element) => {
@@ -63,9 +60,10 @@ function MapView() {
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
           <h6>Elevation : ${element.elevation} m²</h6>
+          <h6>Watt : ${element.watt} W</h6>
 
           </div>`, popupOptions).openPopup();
-          
+
         });
 
         marker.on('mouseout', () => {
@@ -73,7 +71,7 @@ function MapView() {
         });
 
         marker.on('click', () => {
-          navigate("/projectview", { state: { project_id:  project?.project?._id} })
+          navigate("/projectview", { state: { project_id: project?.project?._id } })
         });
       })
 
@@ -92,7 +90,6 @@ function MapView() {
   };
 
   return <div id="map" style={{ width: 'auto', height: '600px', borderRadius: '5px' }} ref={mapRef}></div>;
-  
 
 }
 export default MapView

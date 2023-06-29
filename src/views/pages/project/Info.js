@@ -51,7 +51,7 @@ function Info() {
                                         <p>   Inclinatio slop[°] : {preData?.inclination}°</p>
                                         <p>   PeakPower  : {preData?.peak_power} kWh/m²</p>
                                         <p>   Efficiencey  : {preData?.efficiency} </p>
-
+                                        <p>   Watt  : {preData?.watt} </p>
                                         <p>   Note : The installation of PV products is intended to utilize renewable solar energy as a sustainable and cost-effective solution for generating electricity.</p>
                                     </CardText>
                                 </div>

@@ -26,5 +26,8 @@ export const ApiRoutes = {
   GETALLPREDEFINE: "/Predefine/getAllData",
   UPDATEUSERBYID: "/users/update",
   DELETEUSER: "/users/delete",
-  GETUSERDATA:"/users/getUser"
+  GETUSERDATA:"/users/getUser",
+  RESETPASSWORD:"/users/resetPassword",
+
+  SENDREPORTBYID:"/projects/CalculatePeakPower",
 };

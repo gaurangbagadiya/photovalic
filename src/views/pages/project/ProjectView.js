@@ -34,6 +34,7 @@ import {
   deleteProject,
   getAllProductsById,
   getProjectById,
+  sendReportById,
 } from "../../../@core/api/common_api";
 import { notification } from "../../../@core/constants/notification";
 
@@ -134,6 +135,8 @@ function ProjectView() {
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
           <h6>Elevation : ${element.elevation} m²</h6>
+
+
         </divs>`,
             popupOptions
           )
@@ -163,6 +166,16 @@ function ProjectView() {
     let response = await getAllProductsById(id);
     // console.log("responseeee", response);
     setProductData(response?.data);
+  };
+
+  const sendReport = async (id) => {
+    let response = await sendReportById(id);
+    console.log("response", response);
+    notification({
+      type: response?.status == 1 ? "success" : "error",
+      message: response.message,
+    });
+    // setProjectData(response?.data[0]);
   };
 
   const onSubmit = (data) => {
@@ -231,10 +244,11 @@ function ProjectView() {
                 <Button
                   className="me-1"
                   color="success"
-                  onClick={() =>
-                    navigate("/report", {
-                      state: { project_id: state?.project_id },
-                    })
+                  onClick={
+                    () => sendReport(state?.project_id)
+                    // navigate("/report", {
+                    //   state: { project_id: state?.project_id },
+                    // })
                   }
                 >
                   Generate Report
@@ -493,6 +507,36 @@ function ProjectView() {
                           )}
                         </div>
                       </Col>
+                      {/* <Col md="2">
+                        <div className="mb-1">
+                          <Label className="form-label" for="watt">
+                          Watt :
+                          </Label>
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div className="mb-1">
+                          <Controller
+                            id="watt"
+                            name="watt"
+                            defaultValue=""
+                            control={control}
+                            render={({ field }) => (
+                              <Input
+                                {...field}
+                                placeholder="w"
+                                value={product?.watt}
+                                invalid={errors.watt && true}
+                              />
+                            )}
+                          />
+                          {errors.watt && (
+                            <FormFeedback>
+                              {errors.watt.message}
+                            </FormFeedback>
+                          )}
+                        </div>
+                      </Col> */}
                       {/* <Col md="2">
                         <div className="mb-1">
                           <Label
