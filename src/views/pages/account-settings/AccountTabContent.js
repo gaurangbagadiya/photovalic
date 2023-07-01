@@ -32,7 +32,7 @@ import DeleteAccount from "./DeleteAccount";
 import { notification } from "../../../@core/constants/notification";
 import { getUserById, updateUser } from "../../../@core/api/common_api";
 
-const AccountTabs = ({ data }) => {
+const AccountTabs = () => {
   // ** Hooks
   const defaultValues = {
     lastname: "",
@@ -46,7 +46,7 @@ const AccountTabs = ({ data }) => {
   } = useForm({ defaultValues });
 
   // ** States
-  const [avatar, setAvatar] = useState(data.avatar ? data.avatar : "");
+  // const [avatar, setAvatar] = useState(data.avatar ? data.avatar : "");
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -100,9 +100,9 @@ const AccountTabs = ({ data }) => {
     // }
   };
 
-  const handleImgReset = () => {
-    setAvatar(require("@src/assets/images/avatars/avatar-blank.png").default);
-  };
+  // const handleImgReset = () => {
+  //   setAvatar(require("@src/assets/images/avatars/avatar-blank.png").default);
+  // };
 
   return (
     <Fragment>

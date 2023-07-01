@@ -28,7 +28,7 @@ import {
 } from "reactstrap";
 
 // ** Default Avatar Image
-import defaultAvatar from "@src/assets/images/portrait/small/avatar-s-11.jpg";
+// import defaultAvatar from "@src/assets/images/portrait/small/avatar-s-11.jpg";
 import userImage from "@src/assets/images/portrait/small/user.png";
 
 const UserDropdown = () => {
@@ -46,7 +46,7 @@ const UserDropdown = () => {
   }, []);
 
   //** Vars
-  const userAvatar = (userData && userData.avatar) || defaultAvatar;
+  // const userAvatar = (userData && userData.avatar) || defaultAvatar;
 
   return (
     <UncontrolledDropdown tag="li" className="dropdown-user nav-item">

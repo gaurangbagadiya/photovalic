@@ -4,7 +4,7 @@
 const themeConfig = {
   app: {
     appName: 'photowoltike',
-    appLogoImage: require('@src/assets/images/logo/logo.svg').default
+    appLogoImage: require('@src/assets/images/logo/favicon.png').default
   },
   layout: {
     isRTL: false,
