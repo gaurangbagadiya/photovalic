@@ -9,7 +9,7 @@ import Wizard from "@components/wizard";
 import { Row, Col } from "reactstrap";
 
 // ** Third Party Components
-import { Home, User, CreditCard } from "react-feather";
+import { Home, } from "react-feather";
 
 // ** Steps
 import AccountDetails from "./steps/AccountDetails";
@@ -38,7 +38,7 @@ const RegisterMultiSteps = () => {
 
   return (
     <div className="auth-wrapper auth-cover">
-      <Row className="auth-inner m-0">
+      <Row className=" m-0">
         <Link className="brand-logo" to="/">
           <h2 className="brand-text text-primary ms-1">PHOTOVOLTAIK</h2>
         </Link>

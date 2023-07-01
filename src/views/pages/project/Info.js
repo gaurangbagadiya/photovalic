@@ -51,8 +51,8 @@ function Info() {
                                         <p>   Inclinatio slop[°] : {preData?.inclination}°</p>
                                         <p>   PeakPower  : {preData?.peak_power} kWh/m²</p>
                                         <p>   Efficiencey  : {preData?.efficiency} </p>
-                                        <p>   Watt  : {preData?.watt} </p>
-                                        <p>   Note : The installation of PV products is intended to utilize renewable solar energy as a sustainable and cost-effective solution for generating electricity.</p>
+                                        {/* <p>   Watt  : {preData?.watt} </p> */}
+                                        {/* <p>   Note : The installation of PV products is intended to utilize renewable solar energy as a sustainable and cost-effective solution for generating electricity.</p> */}
                                     </CardText>
                                 </div>
                             </CardBody>
@@ -77,7 +77,7 @@ function Info() {
                              <hr/>
                             <strong> City and state : </strong> Enter Your City and state
                             <hr/>
-                            <strong> Peak Power : </strong>This is the power that the manufacturer declares that the PV array can produce under standard test conditions, which are a constant 1000W of solar irradiance per square meter in the plane of the array, at an array temperature of 25°C. The peak power should be entered in kilowatt-peak (kWp). If you do not know the declared peak power of your modules but instead know the area of the modules (in m2) and the declared conversion efficiency (in percent), you can calculate the peak power as power (kWp) = 1 kW/m2 * area * efficiency / 100. See more explanation in the
+                            <strong> Peak Power : </strong>This is the power that the manufacturer declares that the PV array can produce under standard test conditions, which are a constant 1000W of solar irradiance per square meter in the plane of the array, at an array temperature of 25°C. The peak power should be entered in kilowatt-peak (kWp). If you do not know the declared peak power of your modules but instead know the area of the modules (in m2) and the declared conversion efficiency (in percent), you can calculate the peak power as power (W) = Area(m²) X (Global irradiance(W/m²) x efficiency (decimal or % values)).
                             <hr/>
                             <strong> Orientation  : </strong>on which direction you want to install your Product.
                             <hr/>

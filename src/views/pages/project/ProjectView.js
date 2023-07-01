@@ -68,7 +68,7 @@ function ProjectView() {
     { value: "North", label: "North" },
     { value: "South", label: "South" },
     { value: "East", label: "East" },
-    { value: "Weast", label: "Weast" },
+    { value: "West", label: "West" },
   ];
 
   // ** Hooks
@@ -131,7 +131,6 @@ function ProjectView() {
           <h3>${element.product_name}</h3>
           <h6>Location : ${element.city},${element.state}</h6>
           <h6>Efficiency : ${element.efficiency} </h6>
-          <h6>Peak Power : ${element.peak_power} kwh/m²</h6>
           <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
           <h6>Elevation : ${element.elevation} m²</h6>
@@ -241,41 +240,49 @@ function ProjectView() {
                 Project Name : {projectData?.project_name}
               </CardTitle>
               <div className="d-flex mt-1">
+              {projectData?.report_status == 0 &&
                 <Button
                   className="me-1"
                   color="success"
                   onClick={
-                    () => sendReport(state?.project_id)
-                    // navigate("/report", {
-                    //   state: { project_id: state?.project_id },
-                    // })
+                    () =>
+                      // sendReport(state?.project_id)
+                      navigate("/report", {
+                        state: { project_id: state?.project_id },
+                      })
                   }
                 >
                   Generate Report
                 </Button>
-                <Button
-                  className="me-1"
-                  color="primary"
-                  type="submit"
-                  onClick={() =>
-                    navigate("/project", {
-                      state: {
-                        ...projectData,
-                        project_id: state?.project_id,
-                        type: 2,
-                      },
-                    })
-                  }
-                >
-                  Update
-                </Button>
-                <Button
-                  color="danger"
-                  type="submit"
-                  onClick={() => handleDeleteProject(projectData?._id)}
-                >
-                  Delete
-                </Button>
+}
+                {console.log("productData?.report_status", projectData?.report_status)}
+                {projectData?.report_status == 0 &&
+                  <>
+                    <Button
+                      className="me-1"
+                      color="primary"
+                      type="submit"
+                      onClick={() =>
+                        navigate("/project", {
+                          state: {
+                            ...projectData,
+                            project_id: state?.project_id,
+                            type: 2,
+                          },
+                        })
+                      }
+                    >
+                      Update
+                    </Button>
+                    <Button
+                      color="danger"
+                      type="submit"
+                      onClick={() => handleDeleteProject(projectData?._id)}
+                    >
+                      Delete
+                    </Button>
+                  </>
+                }
               </div>
             </CardHeader>
             <CardBody>
@@ -316,31 +323,35 @@ function ProjectView() {
                 <CardHeader>
                   <CardTitle tag="h4">{product?.product_name}</CardTitle>
                   <div className="d-flex mb-2 mt-1">
-                    <Button
-                      className="me-1"
-                      color="primary"
-                      type="submit"
-                      onClick={() =>
-                        navigate("/project", {
-                          state: {
-                            ...projectData,
-                            project_id: state?.project_id,
-                            ...product,
-                            product_id: product?._id,
-                            type: 1,
-                          },
-                        })
-                      }
-                    >
-                      Update Product
-                    </Button>
-                    <Button
-                      color="danger"
-                      type="reset"
-                      onClick={() => handleDeleteProduct(product?._id)}
-                    >
-                      Delete
-                    </Button>
+                    {projectData?.report_status == 0 &&
+                      <>
+                        <Button
+                          className="me-1"
+                          color="primary"
+                          type="submit"
+                          onClick={() =>
+                            navigate("/project", {
+                              state: {
+                                ...projectData,
+                                project_id: state?.project_id,
+                                ...product,
+                                product_id: product?._id,
+                                type: 1,
+                              },
+                            })
+                          }
+                        >
+                          Update Product
+                        </Button>
+                        <Button
+                          color="danger"
+                          type="reset"
+                          onClick={() => handleDeleteProduct(product?._id)}
+                        >
+                          Delete
+                        </Button>
+                      </>
+                    }
                   </div>
                 </CardHeader>
                 <CardBody>
@@ -506,6 +517,7 @@ function ProjectView() {
                             </FormFeedback>
                           )}
                         </div>
+                        
                       </Col>
                       {/* <Col md="2">
                         <div className="mb-1">
@@ -571,38 +583,6 @@ function ProjectView() {
                           )}
                         </div>
                       </Col> */}
-                    </Row>
-                    <Row>
-                      <Col md="2">
-                        <div className="mb-1">
-                          <Label className="form-label" for="peakPower">
-                            Peak Power
-                          </Label>
-                        </div>
-                      </Col>
-                      <Col md="4">
-                        <div className="mb-1">
-                          <Controller
-                            id="peakPower"
-                            name="peakPower"
-                            defaultValue=""
-                            control={control}
-                            render={({ field }) => (
-                              <Input
-                                {...field}
-                                placeholder="-kWh/m²"
-                                value={product?.peak_power}
-                                invalid={errors.peakPower && true}
-                              />
-                            )}
-                          />
-                          {errors.peakPower && (
-                            <FormFeedback>
-                              {errors.peakPower.message}
-                            </FormFeedback>
-                          )}
-                        </div>
-                      </Col>
                       <Col md="2">
                         <div className="mb-1">
                           <Label className="form-label" for="orientation">
@@ -658,6 +638,39 @@ function ProjectView() {
                           )}
                         </div>
                       </Col>
+                    </Row>
+                    <Row>
+                      {/* <Col md="2">
+                        <div className="mb-1">
+                          <Label className="form-label" for="peakPower">
+                            Peak Power
+                          </Label>
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div className="mb-1">
+                          <Controller
+                            id="peakPower"
+                            name="peakPower"
+                            defaultValue=""
+                            control={control}
+                            render={({ field }) => (
+                              <Input
+                                {...field}
+                                placeholder="-kWh/m²"
+                                value={product?.peak_power}
+                                invalid={errors.peakPower && true}
+                              />
+                            )}
+                          />
+                          {errors.peakPower && (
+                            <FormFeedback>
+                              {errors.peakPower.message}
+                            </FormFeedback>
+                          )}
+                        </div>
+                      </Col> */}
+                      
                     </Row>
 
                     <Row>
@@ -726,7 +739,7 @@ function ProjectView() {
             ))}
         </Col>
       </Row>
-      {productData && productData?.length < 3 && (
+      {projectData?.report_status == 0 && productData && productData?.length < 3 && (
         <Row>
           {/* <AddProduct /> */}
           <Card>

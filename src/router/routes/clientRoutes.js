@@ -1,7 +1,5 @@
 // ** React Imports
-import { Path } from 'leaflet-css'
 import { lazy } from 'react'
-import { Navigate } from 'react-router-dom'
 
 const Project = lazy(() => import('../../views/pages/project/Project'))
 const ProjectHistory = lazy(() => import('../../views/pages/project/ProjectHistory'))

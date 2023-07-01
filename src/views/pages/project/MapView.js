@@ -25,7 +25,7 @@ function MapView() {
   useEffect(() => {
     const mapOptions = {
       center: [50.8282, 12.9209],
-      zoom: 10,
+      zoom: 6,
     };
     const markerSize = [30, 30]; // Customize the size of the marker icon
 
@@ -55,12 +55,10 @@ function MapView() {
           <h5>${project?.project?.project_name}</h5>
           <h4>${element.product_name}</h4>
           <h6>Location : ${element.city},${element.state}</h6>
-          <h6>Efficiency : ${element.efficiency} </h6>
+          <h6>Efficiency : ${element.efficiency} %  </h6>
           <h6>Peak Power : ${element.peak_power} kwh/m²</h6>
-          <h6>Avg Temprature : ${element.avg_Tempraure}°</h6>
           <h6>Orientation : ${element.orientation} facing</h6>
           <h6>Elevation : ${element.elevation} m²</h6>
-          <h6>Watt : ${element.watt} W</h6>
 
           </div>`, popupOptions).openPopup();
 
@@ -89,7 +87,7 @@ function MapView() {
     setProjects(response?.data)
   };
 
-  return <div id="map" style={{ width: 'auto', height: '600px', borderRadius: '5px' }} ref={mapRef}></div>;
+  return <div id="map" style={{ width: 'auto', height: '600px', borderRadius: '5px'}} ref={mapRef}></div>;
 
 }
 export default MapView

@@ -151,34 +151,7 @@ export default [
           },
         ],
       },
-      {
-        id: "register",
-        title: "Register",
-        icon: <Circle size={12} />,
-        children: [
-          {
-            id: "register-basic",
-            title: "Basic",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/register-basic",
-            newTab: true,
-          },
-          {
-            id: "register-cover",
-            title: "Cover",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/register-cover",
-            newTab: true,
-          },
-          {
-            id: "multi-steps-register",
-            title: "Multi-Steps",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/register-multi-steps",
-            newTab: true,
-          },
-        ],
-      },
+    
 
       {
         id: "forgot-password",
@@ -208,27 +181,7 @@ export default [
           },
         ],
       },
-      {
-        id: "verify-email",
-        title: "Verify Email",
-        icon: <Circle size={12} />,
-        children: [
-          {
-            id: "verify-email-basic",
-            title: "Basic",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/verify-email-basic",
-            newTab: true,
-          },
-          {
-            id: "verify-email-cover",
-            title: "Cover",
-            permissions: ["admin", "editor"],
-            navLink: "/pages/verify-email-cover",
-            newTab: true,
-          },
-        ],
-      },
+     
       {
         id: "two-step",
         title: "Two Steps",

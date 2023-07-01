@@ -42,12 +42,7 @@ export default [
             icon: <Circle />,
             navLink: '/forms/elements/checkbox'
           },
-          {
-            id: 'radio',
-            title: 'Radio',
-            icon: <Circle />,
-            navLink: '/forms/elements/radio'
-          },
+        
           {
             id: 'switch',
             title: 'Switch',
@@ -92,18 +87,8 @@ export default [
         icon: <Box />,
         navLink: '/forms/layout/form-layout'
       },
-      {
-        id: 'wizard',
-        title: 'Form Wizard',
-        icon: <Package />,
-        navLink: '/forms/wizard'
-      },
-      {
-        id: 'formValidation',
-        title: 'Form Validation',
-        icon: <AlertTriangle size={12} />,
-        navLink: '/forms/form-validation'
-      },
+     
+      
       {
         id: 'formRepeater',
         title: 'Form Repeater',

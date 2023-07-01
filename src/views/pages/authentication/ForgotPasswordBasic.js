@@ -66,7 +66,7 @@ const ForgotPasswordBasic = () => {
   if (!isUserLoggedIn()) {
     return (
       <div className="auth-wrapper auth-basic px-2">
-        <div className="auth-inner my-2">
+        <div className=" my-2">
           <Card className="mb-0">
             <CardBody>
               <Link

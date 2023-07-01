@@ -310,25 +310,7 @@ return (
                                                 </Col>
                                             </Row>
                                             <Row>
-                                                <Col md="2">
-                                                    <div className='mb-1'>
-                                                        <Label className='form-label' for='peakPower'>
-                                                            Peak Power
-                                                        </Label>
-                                                    </div>
-                                                </Col>
-                                                <Col md="4">
-                                                    <div className='mb-1'>
-                                                        <Controller
-                                                            id='peakPower'
-                                                            name='peakPower'
-                                                            defaultValue=''
-                                                            control={control}
-                                                            render={({ field }) => <Input {...field} placeholder='from back api' invalid={errors.peakPower && true} />}
-                                                        />
-                                                        {errors.peakPower && <FormFeedback>{errors.peakPower.message}</FormFeedback>}
-                                                    </div>
-                                                </Col>
+                                                
                                                 <Col md="2">
                                                     <div className='mb-1'>
                                                         <Label className='form-label' for='orientation'>

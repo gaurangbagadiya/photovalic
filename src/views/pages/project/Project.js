@@ -55,7 +55,7 @@ function Project() {
     { value: "North", label: "North" },
     { value: "South", label: "South" },
     { value: "East", label: "East" },
-    { value: "Weast", label: "Weast" },
+    { value: "West", label: "West" },
   ];
 
   // ** Hooks
@@ -392,7 +392,7 @@ function Project() {
                               setValue("inclination", e?.inclination);
                               setValue("elevation", e?.elevation);
                               setValue("efficiency", e?.efficiency);
-                              setValue("peak_power", e?.peak_power);
+                              // setValue("peak_power", e?.peak_power);
                               // setValue("watt", e?.watt);
 
 
@@ -402,7 +402,7 @@ function Project() {
                                 orientation: e?.orientation,
                                 inclination: e?.inclination,
                                 elevation: e?.elevation,
-                                peak_power: e?.peak_power,
+                                // peak_power: e?.peak_power,
                                 efficiency: e?.efficiency,
                                 // watt: e?.watt,
 
@@ -608,7 +608,7 @@ function Project() {
                                     efficiency: e.target?.value,
                                   });
                                 }}
-                                placeholder="-kWh/m²"
+                                placeholder="%"
                                 invalid={errors.efficiency && true}
                               />
                             )}
@@ -616,6 +616,60 @@ function Project() {
                           {errors.efficiency && (
                             <FormFeedback>
                               {errors.efficiency.message}
+                            </FormFeedback>
+                          )}
+                        </div>
+                      </Col>
+                      <Col md="2">
+                        <div className="mb-1">
+                          <Label className="form-label" for="orientation">
+                            Orientation :
+                          </Label>
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div className="mb-1">
+                          <Controller
+                            id="orientation"
+                            name="orientation"
+                            defaultValue=""
+                            control={control}
+                            render={({ field }) => (
+                              <Select
+                                theme={selectThemeColors}
+                                className="react-select"
+                                classNamePrefix="select"
+                                {...field}
+                                // defaultValue={pvTechnologyOptions[0]}
+                                options={orientationOptions}
+                                isClearable={false}
+                                invalid={errors.orientation && true}
+                                value={
+                                  orientationOptions &&
+                                  orientationOptions?.map((s) => {
+                                    // console.log("sssssssssssssssssss", s?.value, projectData?.orientation);
+                                    if (s?.value == projectData?.orientation) {
+                                      // console.log("s.name ", s?.course_name);
+                                      return {
+                                        label: s?.label,
+                                        value: s?.value,
+                                      };
+                                    }
+                                  })
+                                }
+                                onChange={(e) => {
+                                  field.onChange(e?.value);
+                                  setProjectData({
+                                    ...projectData,
+                                    orientation: e?.value,
+                                  });
+                                }}
+                              />
+                            )}
+                          />
+                          {errors.orientation && (
+                            <FormFeedback>
+                              {errors.orientation.message}
                             </FormFeedback>
                           )}
                         </div>
@@ -695,7 +749,7 @@ function Project() {
                     </Row>
 
                     <Row>
-                      <Col md="2">
+                      {/* <Col md="2">
                         <div className="mb-1">
                           <Label className="form-label" for="peak_power">
                             Peak Power
@@ -744,61 +798,8 @@ function Project() {
                             </FormFeedback>
                           )}
                         </div>
-                      </Col>
-                      <Col md="2">
-                        <div className="mb-1">
-                          <Label className="form-label" for="orientation">
-                            Orientation :
-                          </Label>
-                        </div>
-                      </Col>
-                      <Col md="4">
-                        <div className="mb-1">
-                          <Controller
-                            id="orientation"
-                            name="orientation"
-                            defaultValue=""
-                            control={control}
-                            render={({ field }) => (
-                              <Select
-                                theme={selectThemeColors}
-                                className="react-select"
-                                classNamePrefix="select"
-                                {...field}
-                                // defaultValue={pvTechnologyOptions[0]}
-                                options={orientationOptions}
-                                isClearable={false}
-                                invalid={errors.orientation && true}
-                                value={
-                                  orientationOptions &&
-                                  orientationOptions?.map((s) => {
-                                    // console.log("sssssssssssssssssss", s?.value, projectData?.orientation);
-                                    if (s?.value == projectData?.orientation) {
-                                      // console.log("s.name ", s?.course_name);
-                                      return {
-                                        label: s?.label,
-                                        value: s?.value,
-                                      };
-                                    }
-                                  })
-                                }
-                                onChange={(e) => {
-                                  field.onChange(e?.value);
-                                  setProjectData({
-                                    ...projectData,
-                                    orientation: e?.value,
-                                  });
-                                }}
-                              />
-                            )}
-                          />
-                          {errors.orientation && (
-                            <FormFeedback>
-                              {errors.orientation.message}
-                            </FormFeedback>
-                          )}
-                        </div>
-                      </Col>
+                      </Col> */}
+                     
                     </Row>
                     <Row>
                       <Col md="2">
