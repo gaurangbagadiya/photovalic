@@ -67,12 +67,7 @@ export default [
         icon: <Circle size={12} />,
         navLink: '/components/accordion'
       },
-      {
-        id: 'alerts',
-        title: 'Alerts',
-        icon: <Circle size={12} />,
-        navLink: '/components/alerts'
-      },
+     
       {
         id: 'autoComplete',
         title: 'Auto Complete',
@@ -91,36 +86,14 @@ export default [
         icon: <Circle size={12} />,
         navLink: '/components/badges'
       },
-      {
-        id: 'blockui',
-        title: 'BlockUI',
-        icon: <Circle size={12} />,
-        navLink: '/components/blockui'
-      },
+      
       {
         id: 'breadCrumbs',
         title: 'Breadcrumbs',
         icon: <Circle size={12} />,
         navLink: '/components/breadcrumbs'
       },
-      {
-        id: 'buttons',
-        title: 'Buttons',
-        icon: <Circle size={12} />,
-        navLink: '/components/buttons'
-      },
-      {
-        id: 'collapse',
-        title: 'Collapse',
-        icon: <Circle size={12} />,
-        navLink: '/components/collapse'
-      },
-      {
-        id: 'divider',
-        title: 'Divider',
-        icon: <Circle size={12} />,
-        navLink: '/components/divider'
-      },
+ 
       {
         id: 'dropDowns',
         title: 'Dropdowns',
@@ -151,12 +124,12 @@ export default [
         icon: <Circle size={12} />,
         navLink: '/components/offcanvas'
       },
-      {
-        id: 'pagination',
-        title: 'Pagination',
-        icon: <Circle size={12} />,
-        navLink: '/components/pagination'
-      },
+      // {
+      //   id: 'pagination',
+      //   title: 'Pagination',
+      //   icon: <Circle size={12} />,
+      //   navLink: '/components/pagination'
+      // },
       {
         id: 'pillBadges',
         title: 'Pill Badges',
@@ -169,12 +142,7 @@ export default [
         icon: <Circle size={12} />,
         navLink: '/components/pills-component'
       },
-      {
-        id: 'popovers',
-        title: 'Popovers',
-        icon: <Circle size={12} />,
-        navLink: '/components/popovers'
-      },
+     
       {
         id: 'progress',
         title: 'Progress',
@@ -193,121 +161,106 @@ export default [
         icon: <Circle size={12} />,
         navLink: '/components/tabs-component'
       },
-      {
-        id: 'timeline',
-        title: 'Timeline',
-        icon: <Circle size={12} />,
-        navLink: '/components/timeline'
-      },
-      {
-        id: 'toasts',
-        title: 'Toasts',
-        icon: <Circle size={12} />,
-        navLink: '/components/toasts'
-      },
-      {
-        id: 'tooltips',
-        title: 'Tooltips',
-        icon: <Circle size={12} />,
-        navLink: '/components/tooltips'
-      }
+     
+   
+      // {
+      //   id: 'tooltips',
+      //   title: 'Tooltips',
+      //   icon: <Circle size={12} />,
+      //   navLink: '/components/tooltips'
+      // }
     ]
   },
-  {
-    id: 'extensions',
-    title: 'Extensions',
-    icon: <Box size={20} />,
-    children: [
-      {
-        id: 'sweetAlert',
-        title: 'Sweet Alert',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/sweet-alert'
-      },
-      {
-        id: 'react-hot-toasts',
-        title: 'React Hot Toasts',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/react-hot-toasts'
-      },
-      {
-        id: 'slider',
-        title: 'Sliders',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/slider'
-      },
-      {
-        id: 'drag_&_drop',
-        title: 'Drag & Drop',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/drag-and-drop'
-      },
-      {
-        id: 'tour',
-        title: 'Tour',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/tour'
-      },
-      {
-        id: 'clipBoard',
-        title: 'Clipboard',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/clipboard'
-      },
-      {
-        id: 'reactPlayer',
-        title: 'React Player',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/react-player'
-      },
-      {
-        id: 'contentMenu',
-        title: 'Context Menu',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/context-menu'
-      },
-      {
-        id: 'swiper',
-        title: 'Swiper',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/swiper'
-      },
-      {
-        id: 'ratings',
-        title: 'Ratings',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/ratings'
-      },
-      {
-        id: 'i18n',
-        title: 'I18n',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/i18n'
-      },
-      {
-        id: 'extPagination',
-        title: 'React Paginate',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/pagination'
-      },
-      {
-        id: 'extImport',
-        title: 'Import',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/import'
-      },
-      {
-        id: 'extExport',
-        title: 'Export',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/export'
-      },
-      {
-        id: 'extExportSelected',
-        title: 'Export Selected',
-        icon: <Circle size={12} />,
-        navLink: '/extensions/export-selected'
-      }
-    ]
-  },
+  // {
+  //   id: 'extensions',
+  //   title: 'Extensions',
+  //   icon: <Box size={20} />,
+  //   children: [
+  //     {
+  //       id: 'sweetAlert',
+  //       title: 'Sweet Alert',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/sweet-alert'
+  //     },
+  //    
+  //     {
+  //       id: 'slider',
+  //       title: 'Sliders',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/slider'
+  //     },
+  //     {
+  //       id: 'drag_&_drop',
+  //       title: 'Drag & Drop',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/drag-and-drop'
+  //     },
+  //     // {
+  //     //   id: 'tour',
+  //     //   title: 'Tour',
+  //     //   icon: <Circle size={12} />,
+  //     //   navLink: '/extensions/tour'
+  //     // },
+  //     {
+  //       id: 'clipBoard',
+  //       title: 'Clipboard',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/clipboard'
+  //     },
+  //     {
+  //       id: 'reactPlayer',
+  //       title: 'React Player',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/react-player'
+  //     },
+  //     {
+  //       id: 'contentMenu',
+  //       title: 'Context Menu',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/context-menu'
+  //     },
+  //     // {
+  //     //   id: 'swiper',
+  //     //   title: 'Swiper',
+  //     //   icon: <Circle size={12} />,
+  //     //   navLink: '/extensions/swiper'
+  //     // },
+  //     {
+  //       id: 'ratings',
+  //       title: 'Ratings',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/ratings'
+  //     },
+  //     {
+  //       id: 'i18n',
+  //       title: 'I18n',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/i18n'
+  //     },
+  //     {
+  //       id: 'extPagination',
+  //       title: 'React Paginate',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/pagination'
+  //     },
+  //     {
+  //       id: 'extImport',
+  //       title: 'Import',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/import'
+  //     },
+  //     {
+  //       id: 'extExport',
+  //       title: 'Export',
+  //       icon: <Circle size={12} />,
+  //       navLink: '/extensions/export'
+  //     },
+  //     // {
+  //     //   id: 'extExportSelected',
+  //     //   title: 'Export Selected',
+  //     //   icon: <Circle size={12} />,
+  //     //   navLink: '/extensions/export-selected'
+  //     // }
+  //   ]
+  // },
 ]

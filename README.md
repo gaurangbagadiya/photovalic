@@ -24,7 +24,7 @@ Step 2:- Edit Your package.json File And your Package.json File Look Like This:-
 ------------------------------------------------------------------------------------
 
 {
-  "name": "vuexy-react-admin-dashboard",
+  "name": "Photoboltaic",
   "homepage": "/",
   "version": "1.0",
   "private": true,

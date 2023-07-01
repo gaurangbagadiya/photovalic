@@ -21,38 +21,9 @@ export const searchArr = [
       //   icon: "Home",
       //   link: "/",
       // },
-      {
-        id: 3,
-        target: "email",
-        isBookmarked: true,
-        title: "Email",
-        icon: "Mail",
-        link: "/apps/email",
-      },
-      {
-        id: 4,
-        target: "chat",
-        isBookmarked: true,
-        title: "Chat",
-        icon: "MessageSquare",
-        link: "/apps/chat",
-      },
-      {
-        id: 5,
-        target: "todo",
-        isBookmarked: true,
-        title: "Todo",
-        icon: "CheckSquare",
-        link: "/apps/todo",
-      },
-      {
-        id: 6,
-        target: "calendar",
-        isBookmarked: true,
-        title: "Calendar",
-        icon: "Calendar",
-        link: "/apps/calendar",
-      },
+     
+      
+      
       {
         id: 7,
         target: "invoiceList",
@@ -85,14 +56,7 @@ export const searchArr = [
         icon: "Plus",
         link: "/apps/invoice/add",
       },
-      {
-        id: 11,
-        target: "shop",
-        isBookmarked: false,
-        title: "Shop Ecommerce",
-        icon: "ShoppingCart",
-        link: "/apps/ecommerce/shop",
-      },
+      
       {
         id: 12,
         target: "detail",
@@ -149,22 +113,7 @@ export const searchArr = [
         icon: "LogIn",
         link: "/pages/login-cover",
       },
-      {
-        id: 20,
-        target: "register-basic",
-        isBookmarked: false,
-        title: "Register Basic",
-        icon: "UserPlus",
-        link: "/pages/register-basic",
-      },
-      {
-        id: 21,
-        target: "register-cover",
-        isBookmarked: false,
-        title: "Register Cover",
-        icon: "UserPlus",
-        link: "/pages/register-cover",
-      },
+     
 
       {
         id: 22,
@@ -356,14 +305,7 @@ export const searchArr = [
       //   icon: "Airplay",
       //   link: "/cards/action",
       // },
-      {
-        id: 46,
-        target: "alerts",
-        isBookmarked: false,
-        title: "Alerts",
-        icon: "Info",
-        link: "/components/alerts",
-      },
+     
       {
         id: 47,
         target: "autoComplete",
@@ -396,14 +338,7 @@ export const searchArr = [
         icon: "MoreHorizontal",
         link: "/components/breadcrumbs",
       },
-      {
-        id: 51,
-        target: "buttons",
-        isBookmarked: false,
-        title: "Buttons",
-        icon: "Inbox",
-        link: "/components/buttons",
-      },
+     
       {
         id: 52,
         target: "carousel",
@@ -412,22 +347,8 @@ export const searchArr = [
         icon: "Map",
         link: "/components/carousel",
       },
-      {
-        id: 53,
-        target: "collapse",
-        isBookmarked: false,
-        title: "Collapse",
-        icon: "Minimize",
-        link: "/components/collapse",
-      },
-      {
-        id: 54,
-        target: "divider",
-        isBookmarked: false,
-        title: "Divider",
-        icon: "Minus",
-        link: "/components/divider",
-      },
+      
+     
       {
         id: 55,
         target: "dropDowns",
@@ -460,14 +381,14 @@ export const searchArr = [
         icon: "MoreVertical",
         link: "/components/nav-component",
       },
-      {
-        id: 60,
-        target: "pagination",
-        isBookmarked: false,
-        title: "Pagination",
-        icon: "ChevronsRight",
-        link: "/components/pagination",
-      },
+      // {
+      //   id: 60,
+      //   target: "pagination",
+      //   isBookmarked: false,
+      //   title: "Pagination",
+      //   icon: "ChevronsRight",
+      //   link: "/components/pagination",
+      // },
       {
         id: 61,
         target: "pillBadges",
@@ -484,78 +405,9 @@ export const searchArr = [
         icon: "ToggleRight",
         link: "/components/pills-component",
       },
-      {
-        id: 63,
-        target: "popovers",
-        isBookmarked: false,
-        title: "Popovers",
-        icon: "MessageCircle",
-        link: "/components/popovers",
-      },
-      {
-        id: 64,
-        target: "progress",
-        isBookmarked: false,
-        title: "Progress",
-        icon: "Server",
-        link: "/components/progress",
-      },
-      {
-        id: 65,
-        target: "spinners",
-        isBookmarked: false,
-        title: "Spinners",
-        icon: "Sun",
-        link: "/components/spinners",
-      },
-      {
-        id: 66,
-        target: "tabsComponent",
-        isBookmarked: false,
-        title: "Tabs Component",
-        icon: "Server",
-        link: "/components/tabs-component",
-      },
-      {
-        id: 67,
-        target: "timeline",
-        isBookmarked: false,
-        title: "Timeline",
-        icon: "MoreVertical",
-        link: "/components/timeline",
-      },
-      {
-        id: 68,
-        target: "toasts",
-        isBookmarked: false,
-        title: "Toasts",
-        icon: "Triangle",
-        link: "/components/toasts",
-      },
-      {
-        id: 69,
-        target: "tooltips",
-        isBookmarked: false,
-        title: "Tooltips",
-        icon: "MessageCircle",
-        link: "/components/tooltips",
-      },
-      {
-        id: 70,
-        target: "sweetAlert",
-        isBookmarked: false,
-        title: "Sweet Alerts",
-        icon: "AlertTriangle",
-        link: "/extensions/sweet-alert",
-      },
-      {
-        id: 71,
-        target: "blockui",
-        isBookmarked: false,
-        title: "BlockUI",
-        icon: "Loader",
-        link: "/components/blockui",
-      },
+     
+     
+    
       {
         id: 72,
         target: "toastr",
@@ -564,30 +416,23 @@ export const searchArr = [
         icon: "CreditCard",
         link: "/extensions/toastr",
       },
-      {
-        id: 73,
-        target: "slider",
-        isBookmarked: false,
-        title: "Slider",
-        icon: "Sliders",
-        link: "/extensions/slider",
-      },
-      {
-        id: 74,
-        target: "drag_&_drop",
-        isBookmarked: false,
-        title: "Drag & Drop",
-        icon: "Move",
-        link: "/extensions/drag-and-drop",
-      },
-      {
-        id: 75,
-        target: "tour",
-        isBookmarked: false,
-        title: "Tour",
-        icon: "Airplay",
-        link: "/extensions/tour",
-      },
+      // {
+      //   id: 73,
+      //   target: "slider",
+      //   isBookmarked: false,
+      //   title: "Slider",
+      //   icon: "Sliders",
+      //   link: "/extensions/slider",
+      // },
+   
+      // {
+      //   id: 75,
+      //   target: "tour",
+      //   isBookmarked: false,
+      //   title: "Tour",
+      //   icon: "Airplay",
+      //   link: "/extensions/tour",
+      // },
       {
         id: 76,
         target: "clipBoard",
@@ -596,38 +441,31 @@ export const searchArr = [
         icon: "Clipboard",
         link: "/extensions/clipboard",
       },
-      {
-        id: 77,
-        target: "mediaPlayer",
-        isBookmarked: false,
-        title: "React Player",
-        icon: "Film",
-        link: "/extensions/react-player",
-      },
-      {
-        id: 78,
-        target: "contentMenu",
-        isBookmarked: false,
-        title: "Context Menu",
-        icon: "Menu",
-        link: "/extensions/context-menu",
-      },
-      {
-        id: 79,
-        target: "swiper",
-        isBookmarked: false,
-        title: "Swiper",
-        icon: "Smartphone",
-        link: "/extensions/swiper",
-      },
-      {
-        id: 81,
-        target: "ratings",
-        isBookmarked: false,
-        title: "Ratings",
-        icon: "Star",
-        link: "/extensions/ratings",
-      },
+      // {
+      //   id: 77,
+      //   target: "mediaPlayer",
+      //   isBookmarked: false,
+      //   title: "React Player",
+      //   icon: "Film",
+      //   link: "/extensions/react-player",
+      // },
+     
+      // {
+      //   id: 79,
+      //   target: "swiper",
+      //   isBookmarked: false,
+      //   title: "Swiper",
+      //   icon: "Smartphone",
+      //   link: "/extensions/swiper",
+      // },
+      // {
+      //   id: 81,
+      //   target: "ratings",
+      //   isBookmarked: false,
+      //   title: "Ratings",
+      //   icon: "Star",
+      //   link: "/extensions/ratings",
+      // },
       {
         id: 82,
         target: "i18n",
@@ -644,14 +482,14 @@ export const searchArr = [
         icon: "Lock",
         link: "/access-control",
       },
-      {
-        id: 84,
-        target: "extPagination",
-        isBookmarked: false,
-        title: "React Paginate",
-        icon: "MoreHorizontal",
-        link: "/extensions/pagination",
-      },
+      // {
+      //   id: 84,
+      //   target: "extPagination",
+      //   isBookmarked: false,
+      //   title: "React Paginate",
+      //   icon: "MoreHorizontal",
+      //   link: "/extensions/pagination",
+      // },
       {
         id: 85,
         target: "extImport",
@@ -668,14 +506,14 @@ export const searchArr = [
         icon: "UploadCloud",
         link: "/extensions/export",
       },
-      {
-        id: 87,
-        target: "extExportSelected",
-        isBookmarked: false,
-        title: "Export Selected",
-        icon: "CheckSquare",
-        link: "/extensions/export-selected",
-      },
+      // {
+      //   id: 87,
+      //   target: "extExportSelected",
+      //   isBookmarked: false,
+      //   title: "Export Selected",
+      //   icon: "CheckSquare",
+      //   link: "/extensions/export-selected",
+      // },
       // {
       //   id: 88,
       //   target: "pageLayout-collapsedMenu",
@@ -756,14 +594,7 @@ export const searchArr = [
         icon: "CheckSquare",
         link: "/forms/elements/checkbox",
       },
-      {
-        id: 98,
-        target: "radio",
-        isBookmarked: false,
-        title: "Radio",
-        icon: "StopCircle",
-        link: "/forms/elements/radio",
-      },
+    
       {
         id: 99,
         target: "switch",
@@ -804,14 +635,7 @@ export const searchArr = [
         icon: "Edit3",
         link: "/forms/elements/editor",
       },
-      {
-        id: 104,
-        target: "date_&_timePicker",
-        isBookmarked: false,
-        title: "Date & Time Picker",
-        icon: "Calendar",
-        link: "/forms/elements/pickers",
-      },
+     
       {
         id: 105,
         target: "formLayouts",
@@ -820,22 +644,8 @@ export const searchArr = [
         icon: "Layout",
         link: "/forms/layout/form-layout",
       },
-      {
-        id: 106,
-        target: "wizard",
-        isBookmarked: false,
-        title: "Form Wizard",
-        icon: "Sliders",
-        link: "/forms/wizard",
-      },
-      {
-        id: 107,
-        isBookmarked: false,
-        icon: "AlertTriangle",
-        target: "formValidation",
-        title: "Form Validation",
-        link: "/forms/form-validation",
-      },
+    
+     
       {
         id: 109,
         target: "formRepeater",
@@ -868,30 +678,9 @@ export const searchArr = [
       //   icon: "Grid",
       //   link: "/datatables/advance",
       // },
-      {
-        id: 114,
-        target: "apex",
-        isBookmarked: false,
-        title: "Apex Charts",
-        icon: "BarChart",
-        link: "/charts/apex",
-      },
-      {
-        id: 115,
-        target: "chartJs",
-        isBookmarked: false,
-        title: "ChartJS",
-        icon: "Activity",
-        link: "/charts/chartjs",
-      },
-      {
-        id: 116,
-        target: "recharts",
-        isBookmarked: false,
-        title: "Recharts",
-        icon: "BarChart2",
-        link: "/charts/recharts",
-      },
+ 
+    
+     
       {
         id: 118,
         target: "roles",
@@ -900,14 +689,7 @@ export const searchArr = [
         icon: "Shield",
         link: "/apps/roles",
       },
-      {
-        id: 119,
-        target: "permissions",
-        isBookmarked: false,
-        title: "Permissions",
-        icon: "Shield",
-        link: "/apps/permissions",
-      },
+      
       {
         id: 120,
         target: "license",
@@ -957,22 +739,7 @@ export const searchArr = [
       //   link: "/pages/modal-examples",
       // },
 
-      {
-        id: 125,
-        icon: 'AtSign',
-        isBookmarked: false,
-        target: 'verifyEmailBasic',
-        title: 'Verify Email Basic',
-        link: '/pages/verify-email-basic'
-      },
-      {
-        id: 126,
-        icon: 'AtSign',
-        isBookmarked: false,
-        target: 'verifyEmailCover',
-        title: 'Verify Email Cover',
-        link: '/pages/verify-email-cover'
-      },
+     
       {
         id: 127,
         icon: "HelpCircle",
@@ -989,14 +756,14 @@ export const searchArr = [
         link: "/pages/two-steps-cover",
         title: "Two Step Verification Cover",
       },
-      {
-        id: 129,
-        icon: "CheckSquare",
-        isBookmarked: false,
-        target: "appKanban",
-        link: "/apps/kanban",
-        title: "Kanban",
-      },
+      // {
+      //   id: 129,
+      //   icon: "CheckSquare",
+      //   isBookmarked: false,
+      //   target: "appKanban",
+      //   link: "/apps/kanban",
+      //   title: "Kanban",
+      // },
     ],
   },
   {

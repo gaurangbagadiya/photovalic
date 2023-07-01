@@ -71,8 +71,8 @@ import { isUserLoggedIn } from "../../../utility/Utils";
 //};
 
 const defaultValues = {
-  email: "niravmendapara@gmail.com",
-  password: "Nivs#111",
+  email: "", 
+  password: "",
 
 };
 
@@ -153,42 +153,13 @@ const Login = () => {
 
   return (
     <div className="auth-wrapper auth-basic px-2">
-      <div className="auth-inner my-2">
+      <div className=" my-2">
         <Card className="mb-0">
           <CardBody>
             {/* <Link className='brand-logo' to='/' 
           onClick={e => e.preventDefault()}
           > */}
-            <svg viewBox="0 0 139 95" version="1.1" height="28" />
-            <defs>
-              <linearGradient
-                x1="100%"
-                y1="10.5120544%"
-                x2="50%"
-                y2="89.4879456%"
-                id="linearGradient-1"
-              >
-                <stop stopColor="#000000" offset="0%"></stop>
-                <stop stopColor="#FFFFFF" offset="100%"></stop>
-              </linearGradient>
-              <linearGradient
-                x1="64.0437835%"
-                y1="46.3276743%"
-                x2="37.373316%"
-                y2="100%"
-                id="linearGradient-2"
-              >
-                <stop stopColor="#EEEEEE" stopOpacity="0" offset="0%"></stop>
-                <stop stopColor="#FFFFFF" offset="100%"></stop>
-              </linearGradient>
-            </defs>
-            <g
-              id="Page-1"
-              stroke="none"
-              strokeWidth="1"
-              fill="none"
-              fillRule="evenodd"
-            ></g>
+           
             <h2 className="brand-text text-primary ms-1">PHOTOVOLTAIK</h2>
             <CardTitle tag="h4" className="mb-1">
               Welcome To photovoltaik

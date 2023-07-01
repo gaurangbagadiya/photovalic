@@ -241,50 +241,50 @@ const data = {
         }
       ]
     },
-    {
-      id: 6,
-      labels: ['Charts & Maps'],
-      attachments: [
-        {
-          name: 'documentation.doc',
-          img: require('@src/assets/images/icons/file-icons/doc.png').default
-        },
-        {
-          name: 'app.js',
-          img: require('@src/assets/images/icons/file-icons/js.png').default
-        },
-        {
-          name: 'book.pdf',
-          img: require('@src/assets/images/icons/file-icons/pdf.png').default
-        }
-      ],
-      boardId: 'done',
-      description: '',
-      dueDate: dayAfterTomorrow,
-      title: 'Completed Charts & Maps',
-      comments: [
-        {
-          name: 'Elaine Benes',
-          img: require('@src/assets/images/portrait/small/avatar-s-5.jpg').default,
-          comment: 'Complete this on priority'
-        },
-        {
-          name: 'Newman Knight',
-          img: require('@src/assets/images/portrait/small/avatar-s-6.jpg').default,
-          comment: 'Complete this on priority'
-        }
-      ],
-      assignedTo: [
-        {
-          title: 'Charlie Kelly',
-          img: require('@src/assets/images/portrait/small/avatar-s-6.jpg').default
-        },
-        {
-          title: 'Dennis Reynolds',
-          img: require('@src/assets/images/portrait/small/avatar-s-4.jpg').default
-        }
-      ]
-    }
+    // {
+    //   id: 6,
+    //   labels: ['Charts & Maps'],
+    //   attachments: [
+    //     {
+    //       name: 'documentation.doc',
+    //       img: require('@src/assets/images/icons/file-icons/doc.png').default
+    //     },
+    //     {
+    //       name: 'app.js',
+    //       img: require('@src/assets/images/icons/file-icons/js.png').default
+    //     },
+    //     {
+    //       name: 'book.pdf',
+    //       img: require('@src/assets/images/icons/file-icons/pdf.png').default
+    //     }
+    //   ],
+    //   boardId: 'done',
+    //   description: '',
+    //   dueDate: dayAfterTomorrow,
+    //   title: 'Completed Charts & Maps',
+    //   comments: [
+    //     {
+    //       name: 'Elaine Benes',
+    //       img: require('@src/assets/images/portrait/small/avatar-s-5.jpg').default,
+    //       comment: 'Complete this on priority'
+    //     },
+    //     {
+    //       name: 'Newman Knight',
+    //       img: require('@src/assets/images/portrait/small/avatar-s-6.jpg').default,
+    //       comment: 'Complete this on priority'
+    //     }
+    //   ],
+    //   assignedTo: [
+    //     {
+    //       title: 'Charlie Kelly',
+    //       img: require('@src/assets/images/portrait/small/avatar-s-6.jpg').default
+    //     },
+    //     {
+    //       title: 'Dennis Reynolds',
+    //       img: require('@src/assets/images/portrait/small/avatar-s-4.jpg').default
+    //     }
+    //   ]
+    // }
   ]
 }
 

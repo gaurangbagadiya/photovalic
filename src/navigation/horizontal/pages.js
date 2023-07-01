@@ -47,34 +47,7 @@ export default [
               },
             ],
           },
-          {
-            id: "register",
-            title: "Register",
-            icon: <Circle size={12} />,
-            children: [
-              {
-                id: "register-basic",
-                title: "Basic",
-                permissions: ["admin", "editor"],
-                navLink: "/pages/register-basic",
-                newTab: true,
-              },
-              {
-                id: "register-cover",
-                title: "Cover",
-                permissions: ["admin", "editor"],
-                navLink: "/pages/register-cover",
-                newTab: true,
-              },
-              {
-                id: "multi-steps-register",
-                title: "Multi-Steps",
-                permissions: ["admin", "editor"],
-                navLink: "/pages/register-multi-steps",
-                newTab: true,
-              },
-            ],
-          },
+          
 
           {
             id: "forgot-password",

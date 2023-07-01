@@ -13,7 +13,7 @@ export const ApiRoutes = {
   GETALLPROJECTS: "/projects/getproject",
   GETALLPROJECTSWITHPRODUCTS: "/projects/getprojectwithproducts",
   GETPROJECTBYID: "/projects/projectbyid",
-  INSERTPROJECT: "/projects/add",
+  INSERTPROJECT: "/projects/add", 
   DELETEPROJECTBYID: "/projects/Alldelete",
   UPDATEPROJECT: "/projects/update",
 
@@ -24,10 +24,13 @@ export const ApiRoutes = {
   GETALLPRODUCTSBYID: "/Product/allproducts",
 
   GETALLPREDEFINE: "/Predefine/getAllData",
+
   UPDATEUSERBYID: "/users/update",
   DELETEUSER: "/users/delete",
   GETUSERDATA:"/users/getUser",
+  
   RESETPASSWORD:"/users/resetPassword",
 
   SENDREPORTBYID:"/projects/CalculatePeakPower",
+  GENERATEREPORT:"/projects/generateReport"
 };

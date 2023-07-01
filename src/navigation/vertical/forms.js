@@ -91,19 +91,8 @@ export default [
 
     navLink: '/forms/layout/form-layout'
   },
-  {
-    id: 'wizard',
-    title: 'Form Wizard',
-    icon: <Package size={20} />,
 
-    navLink: '/forms/wizard'
-  },
-  {
-    id: 'formValidation',
-    title: 'Form Validation',
-    icon: <AlertTriangle size={12} />,
-    navLink: '/forms/form-validation'
-  },
+  
   {
     id: 'formRepeater',
     title: 'Form Repeater',

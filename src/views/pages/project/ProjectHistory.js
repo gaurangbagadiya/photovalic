@@ -1,5 +1,4 @@
 
-
 import React, { Fragment, useEffect, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardText, CardBody, Button, Col, Row, Input } from 'reactstrap';
 import Breadcrumbs from '@components/breadcrumbs';
@@ -45,15 +44,7 @@ function ProjectHistory() {
     }
   }
 
-  const sendReport = async (id) => {
-    let response = await sendReportById(id);
-    console.log("response", response);
-    notification({
-      type: response?.status == 1 ? "success" : "error",
-      message: response.message,
-    });
-    // setProjectData(response?.data[0]);
-  };
+
 
   useEffect(() => {
     // Filter projects based on active/inactive status and search term
@@ -62,9 +53,9 @@ function ProjectHistory() {
       if (activeFilter === 'all') {
         return project?.project_name?.toLowerCase()?.includes(searchTerm?.toLowerCase());
       } else if (activeFilter === 'active') {
-        return project?.active && project?.project_name?.toLowerCase()?.includes(searchTerm.toLowerCase());
+        return project?.report_status == 0 && project?.project_name?.toLowerCase()?.includes(searchTerm.toLowerCase());
       } else if (activeFilter === 'inactive') {
-        return !project?.active && project?.project_name?.toLowerCase()?.includes(searchTerm.toLowerCase());
+        return project?.report_status == 1 && project?.project_name?.toLowerCase()?.includes(searchTerm.toLowerCase());
       }
       return true;
     });
@@ -103,7 +94,16 @@ function ProjectHistory() {
     // },
     {
       name: "status",
-      selector: (row) => row?.active,
+      selector: (row) => (
+        <div>
+          {row?.report_status === 0 ? (
+            <span title="Active">Active</span>
+          ) : (
+            <span title="Inactive">Inactive</span>
+          )}
+        </div>
+      ),
+      // selector: (row) => row?.active,
     },
 
     {
@@ -118,10 +118,10 @@ function ProjectHistory() {
                 style={{ marginRight: "5px", cursor: "pointer" }}
                 color="#28c76f"
                 onClick={
-                  () => sendReport(state?.project_id)
-                  // navigate("/report", {
-                  //   state: { project_id: state?.project_id },
-                  // })
+                  () =>
+                    navigate("/report", {
+                      state: { project_id: row?._id },
+                    })
                 }
               />
             </span>
@@ -168,16 +168,19 @@ function ProjectHistory() {
     // },
     {
       name: "Delete",
-      selector: (row) => (<div>
-        <span title="Delete Project">
-          <Trash2
-            size={15}
-            style={{ marginRight: "5px", cursor: "pointer" }}
-            color="#ea5455"
-            onClick={() => handleDeleteProject(row?._id)}
-          />
-        </span>
-      </div>),
+      selector: (row) => (
+        row?.report_status == 0 &&
+        <div>
+          <span title="Delete Project">
+            <Trash2
+              size={15}
+              style={{ marginRight: "5px", cursor: "pointer" }}
+              color="#ea5455"
+
+              onClick={() => handleDeleteProject(row?._id)}
+            />
+          </span>
+        </div>),
     },
   ];
 

@@ -211,3 +211,13 @@ export const resetPassword = async (data) => {
     throw error;
   }
 };
+
+
+export const generateReport = async (id) => {
+  try {
+    const res = await Request.get(ApiRoutes.GENERATEREPORT + "/" + id);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
