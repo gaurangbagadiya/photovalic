@@ -23,31 +23,33 @@ import '@styles/react/pages/page-account-settings.scss'
 const AccountSettings = () => {
   // ** States
   const [activeTab, setActiveTab] = useState('1')
-  const [data, setData] = useState(null)
+  // const [data, setData] = useState(null)
 
   const toggleTab = tab => {
     setActiveTab(tab)
   }
 
-  useEffect(() => {
-    axios.get('/account-setting/data').then(response => setData(response.data))
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/account-setting/data').then(response => setData(response.data))
+  // }, [])
 
   return (
     <Fragment>
       <Breadcrumbs title='Account Settings' data={[{ title: 'Pages' }, { title: 'Account Settings' }]} />
-      {data !== null ? (
+      {/* {data !== null ? ( */}
         <Row>
           <Col xs={12}>
 
             <TabContent activeTab={activeTab}>
               <TabPane tabId='1'>
-                <AccountTabContent data={data.general} />
+                <AccountTabContent 
+                // data={data.general} 
+                />
               </TabPane>
             </TabContent>
           </Col>
         </Row>
-      ) : null}
+      {/* ) : null} */}
     </Fragment>
   )
 }
